@@ -1,0 +1,71 @@
+// grid placeholders
+%full-block {
+  @include grid-init($sm-up:60);
+}
+
+%half-block {
+  @include grid-init($sm-up:30);
+}
+
+%third-block{
+  @include grid-init($sm-up:20);
+}
+
+%two-thirds-block{
+  @include grid-init($sm-up:40);
+}
+
+%halfSm-fullLg-block {
+  @include grid-init($sm-up:60, $lg-up: 30);
+}
+
+%halfSm-fullxLg-block {
+  @include grid-init($sm-up:60, $xlg-up: 30);
+}
+
+%halfSm-fullLg-l-block {
+  @include grid-init($sm-up:60, $lg-l-up: 30);
+}
+
+%fullSm-thirdLg-l-block {
+  @include grid-init($sm-up:60, $lg-l-up: 20);
+}
+
+%halfSm-quarterLg-block {
+  @include grid-init($sm-up:30, $lg-up: 15);
+}
+
+%halfSm-quarterLg-l-block {
+  @include grid-init($sm-up:30, $lg-l-up: 15);
+}
+
+//utility
+%no-space{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+//alignment
+%absolute-center-parent{
+    position: relative;
+}
+
+%absolute-center-item{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+// content components
+%title{
+    display: block;
+    width: 100%;
+    color: $primary-color;
+    height: 8vh;
+    line-height: 6vh;
+    padding: 1vh 2vh;
+    text-align: center;
+    font-size: 1.3em;
+}

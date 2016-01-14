@@ -1,0 +1,27 @@
+message-container{
+    @include  grid-init(60, 60, 60, 30, 30, 30, 30, left);
+    title{
+        @include  grid-init(30, 30, 30, 30, 30, 30, 30, left);
+        display: block;
+        color: $primary-color;
+        height: 4vh;
+        line-height: 4vh;
+        text-align: left;
+        font-size: 1.1em;
+    }
+    post-date{
+        // @include grid-init(30, 30, 30, 30, 30, 30, 30, right);
+        text-align: right;
+        height: 4vh;
+        line-height: 4vh;
+        color: $primary-color;
+    }
+
+    post-content{
+        @include grid-column($columns: 60);
+        font-size: 0.85em;
+    }
+    a{
+          float: right;
+    }
+}

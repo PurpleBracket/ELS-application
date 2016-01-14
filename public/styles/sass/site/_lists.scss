@@ -1,0 +1,45 @@
+admission-list{
+    @include  grid-init(60, 60, 60, 30, 30, 26, 26, left);
+    @extend %no-space;
+    // background: rgba($secondary-color,0.5);
+    @media #{$xlarge-up} {
+        @include grid-column($offset: 2);
+    }
+    padding: 1vh 2vh;
+    .nav.nav-tabs{
+        display: none;
+    }
+    select.list-select{
+      font-size: 1em;
+      line-height: 3em;
+      height: 3em;
+      border: none;
+      background: $primary-color;
+      color: $secondary-color;
+      padding: 0 2vw;
+    }
+    title{
+        display: block;
+        width: 100%;
+        color: $primary-color;
+        // background-color: $alert-color;
+        height: 8vh;
+        line-height: 6vh;
+        padding: 1vh 2vh;
+        text-align: center;
+        font-size: 1.3em;
+    }
+    .tab-content{
+      padding: 1vh 2vh;
+    }
+    ul{
+        padding: 1vh 2vh;
+        li{
+            list-style: none;
+        }
+    }
+}
+
+#reading-lists{
+    padding: 0;
+}

@@ -1,0 +1,33 @@
+#intro-slider{
+  @include grid-init(60, 60, 60, 60, 60, 60, 60, left);
+  @include height-init(75vw + set($topbar-height, sm), 75vw + set($topbar-height, md), 75vw + set($topbar-height, md-l), 75vw, 50vh, 50vh, 50vh);
+  @media #{$small-only}, #{$medium-only}{
+      @include padding-top-init(set($topbar-height, sm),set($topbar-height, md), set($topbar-height, md-l), set($topbar-height, lg), set($topbar-height, lg-l), set($topbar-height, xlg), set($topbar-height, xxlg));
+  }
+  min-width: 90vw;
+  display: inline-block;
+  float: left;
+  transition: margin 0.35s ease-in-out;
+  &.accordion-active{
+      @include margin-top-init(-60vw - set($topbar-height, sm),-60vw - set($topbar-height, md), -60vw - set($topbar-height, md-l), -60vw + set($topbar-height, lg), -40vh + set($topbar-height, lg-l), -40vh + set($topbar-height, xlg), -40vh + set($topbar-height, xxlg));
+  }
+
+
+    .item{
+        height: 75vh;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: rgba($primary-color, 0.4);
+        transition: height 0.3s ease-in-out;
+    }
+    // 
+    // &.accordion-active{
+    //     min-height: 60vh !important;
+    //     height: 60vh !important;
+    //     .item{
+    //         height: 60vh !important;
+    //     }
+    // }
+    //
+}

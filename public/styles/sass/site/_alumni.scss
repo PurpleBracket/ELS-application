@@ -1,0 +1,78 @@
+
+#alumni-newsletter{
+    @include grid-init(60, 60, 60, 60, 60, 45, 45, left);
+
+    newsletter-container{
+        @include  grid-init(60, 60, 60, 30, 30, 30, 30, left);
+    }
+
+    .carousel-indicators{
+        li{
+            @media #{$large-only} {
+                &:nth-of-type(even){
+                    display: none;
+                }
+            }
+            @media #{$xlarge-up} {
+                display: none;
+                &:nth-of-type(3n+1) {
+                    display: none;
+                }
+                &:nth-of-type(4n+5), &:first-of-type {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+}
+
+#alumni-events{
+    @include grid-init(60, 60, 60, 60, 60, 15, 15, left);
+
+    monthly-calendar, events-list{
+        @include grid-init(60, 60, 60, 60, 60, 60, 60, left);
+    }
+}
+
+#alumni-message-board{
+    @include grid-init(60, 60, 60, 60, 60, 30, 30, left);
+}
+#contact-footer-container.alumni{
+    @include grid-init(60, 60, 60, 60, 60, 30, 30, left);
+}
+
+
+#contact-footer-container.alumni{
+    .content{
+        background-color: $primary-color;
+    }
+    input.form-input{
+        @include  grid-init(48, 48, 48, 33, 31, 18, 18, left);
+        height: 6vh;
+        margin-bottom: 2vh;
+        padding: 0;
+        &#name, &#phone, &#email{
+            @include  grid-init(48, 48, 48, 33, 31, 15, 15, left);
+        }
+        &#subject{
+            @include grid-init(48, 48, 48, 55, 55, 55, 55, left);
+        }
+    }
+    label.form-label{
+        @include  grid-init(12, 12, 12, 5, 5, 5, 5, left);
+        @extend %no-space;
+        line-height: 6vh;
+        text-align: center;
+        &[for="email"], &[for="subject"]{
+            @include  grid-init(12, 12, 12, 5, 5, 5, 5, left);
+        }
+        &[for="message"]{
+            @include  grid-init(60, 60, 60, 60, 60, 60, 60, left);
+        }
+    }
+    textarea#message{
+        @include grid-init(60, 60, 60, 60, 60, 60, 60, left);
+        line-height: 1.2;
+    }
+}

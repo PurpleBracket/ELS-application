@@ -1,0 +1,220 @@
+admission-block{
+    @include grid-init(60, 60, 60, 60, 30, 30, 30, left);
+    @include panel();
+    padding: 0 !important;
+    border: 0;
+    // background: rgba($alert-color, 0.35);
+
+    &.half{
+        @include grid-init(50, 50, 50, 50, 26, 26, 26, left);
+        @include grid-column($offset: 5);
+        @media #{$large-up} and (orientation: landscape) {
+            @include grid-column($offset: 2);
+        }
+    }
+    title{
+        display: block;
+        width: 100%;
+        color: $primary-color;
+        // background-color: $alert-color;
+        height: 8vh;
+        line-height: 6vh;
+        text-align: center;
+        font-size: 1.3em;
+    }
+    p{
+        padding: 1vh 2vh;
+    }
+    @media #{$large-up} and (orientation: landscape) {
+        @include grid-column($offset: 0);
+    }
+    .admission-img-half{
+        @include grid-column($columns: 30);
+        height: 180px;
+    }
+
+    ul {
+        @include grid-column($columns: 30);
+        margin: 0;
+        li{
+            list-style: none;
+        }
+    }
+
+}
+
+hero-block{
+    @include grid-init(60, 60, 60, 60, 60, 60, 60, left);
+    @include height-init(75vw + set($topbar-height, sm), 75vw + set($topbar-height, md), 75vw + set($topbar-height, md-l), 75vw, 50vh, 50vh, 50vh);
+    @media #{$small-only}, #{$medium-only}{
+        @include padding-top-init(set($topbar-height, sm),set($topbar-height, md), set($topbar-height, md-l), set($topbar-height, lg), set($topbar-height, lg-l), set($topbar-height, xlg), set($topbar-height, xxlg));
+    }
+    min-width: 90vw;
+    display: inline-block;
+    float: left;
+    transition: margin 0.35s ease-in-out;
+    &.accordion-active{
+        @include margin-top-init(-60vw - set($topbar-height, sm),-60vw - set($topbar-height, md), -60vw - set($topbar-height, md-l), -60vw + set($topbar-height, lg), -40vh + set($topbar-height, lg-l), -40vh + set($topbar-height, xlg), -40vh + set($topbar-height, xxlg));
+    }
+
+    &.about, &.church{
+        @include height-init(250vw + set($topbar-height, sm),
+                            225vw + set($topbar-height, md),
+                            225vw + set($topbar-height, md-l),
+                            160vw,
+                            100vh,
+                            100vh,
+                            100vh);
+
+        &.accordion-active{
+            @include margin-top-init(-250vw - set($topbar-height, sm),-225vw - set($topbar-height, md), -225vw - set($topbar-height, md-l), -160vw + set($topbar-height, lg), -100vh + set($topbar-height, lg-l), -100vh + set($topbar-height, xlg), -100vh + set($topbar-height, xxlg));
+            @include height-init(75vw + set($topbar-height, sm), 75vw + set($topbar-height, md), 75vw + set($topbar-height, md-l), 75vw, 50vh, 50vh, 50vh);
+            p{
+              display: none;
+            }
+            title{
+              display: none;
+            }
+        }
+
+        img{
+            max-height: 45%;
+        }
+
+        title{
+          display: block;
+          width: 100%;
+          color: $primary-color;
+          // background-color: $alert-color;
+          height: 8vh;
+          line-height: 6vh;
+          padding: 1vh 2vh;
+          text-align: center;
+          font-size: 1.3em;
+        }
+
+        p{
+            max-width: 85vw;
+            margin: 0 auto;
+        }
+    }
+    &.church{
+      @include height-init(210vw,
+                          235vw,
+                          225vw,
+                          110vw,
+                          80vh,
+                          60vh,
+                          60vh);
+
+        width: 100%;
+        img{
+            max-height: 65%;
+        }
+        &.accordion-active{
+            @include margin-top-init(- set($topbar-height, sm),
+                                    - set($topbar-height, md),
+                                    - set($topbar-height, md-l),
+                                    - set($topbar-height, lg),
+                                    - set($topbar-height, lg-l),
+                                    - set($topbar-height, xlg),
+                                    - set($topbar-height, xxlg));
+
+            @include height-init(set($topbar-height, sm),
+                                set($topbar-height, md),
+                                set($topbar-height, md-l),
+                                set($topbar-height, lg),
+                                set($topbar-height, lg-l),
+                                set($topbar-height, xlg),
+                                set($topbar-height, xxlg));
+
+            img{
+                max-height: 100%;
+            }
+        }
+        p{
+            max-width: 85vw;
+            margin: 0 auto;
+            padding: 2vh;
+        }
+    }
+    img{
+        position: relative;
+        min-width: 100%;
+        max-height: 100%;
+    }
+
+
+    #map {
+        height: 50vw;
+        max-width: 85vw;
+        margin: 0 auto;
+        padding-top: 5vh;
+        @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+            height: 20vw;
+        }
+    }
+
+}
+
+
+faculty-block{
+  @include grid-init(30, 30, 30, 30, 20, 15, 15, left);
+  @include panel();
+  padding: 2vh 4vw !important;
+  border: 0;
+  // background: rgba($alert-color, 0.35);
+  title{
+      display: block;
+      width: 100%;
+      color: $primary-color;
+      // background-color: $alert-color;
+      height: 7vh;
+      line-height:5vh;
+      padding: 1vh 0;
+      text-align: center;
+      font-size: 1.3em;
+  }
+  img{
+      position: relative;
+      min-width: 100%;
+      height: 20vh;
+  }
+  description{
+      display: block;
+      width: 100%;
+      padding: 0;
+      text-align: center;
+  }
+}
+
+%section-3{
+    @include grid-init(20, 20, 20, 20, 20, 20, 20, left);
+}
+
+%section-1{
+    @include grid-init(60, 60, 60, 60, 60, 60, 60, left);
+}
+
+section-button-3{
+    @extend %section-3;
+}
+
+
+section-button-1{
+    @extend %section-1;
+}
+
+section-button-3, section-button-1{
+    padding: 2vh 2vw;
+    padding-bottom: 0;
+    padding-bottom: 0;
+    a{
+        @include height-lineHeight-init(6vh, 6vh, 6vh, 6vh, 6vh, 6vh, 6vh);
+        background: $primary-color;
+        color: $secondary-color;
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+}

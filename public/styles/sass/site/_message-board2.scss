@@ -1,0 +1,144 @@
+#message-board{
+    @media #{$xlarge-up} {
+      max-height: 70vh;
+      overflow-y: scroll;
+    }
+}
+message-container{
+    @include grid-init($sm-up: 56, $lg-l: 27, $xlg-up: 27);
+    @include grid-column($offset: 2);
+    @include height-init($sm-up: 63vh, $lg-up: 32.5vh, $lg-l: 42.5vh);
+    @include gradient($startColor: rgba(white, 0), $endColor: rgba(white, 0.05));
+    padding: 1vh 0 !important;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    border: 0;
+    @media #{$large-up} and (orientation: landscape) {
+        @include grid-column($offset: 2);
+        &:nth-of-type(even){
+            @include grid-column($offset: 2);
+        }
+    }
+    title{
+        @include grid-init($sm-up: 60);
+        @extend %header-2;
+        display: inline-block;
+        color: $secondary-color;
+        height: 6vh;
+        line-height: 6vh;
+        color: $primary-color;
+        background: rgba($secondary-color, 1);
+        border-bottom: 4px scale-color($secondary-color, $lightness: -15%) solid;
+        padding: 0 2vw !important;
+        text-align: center;
+        @media #{$large-up} {
+          text-align: left;
+        }
+        @media #{$large-only} and (orientation: landscape) {
+          text-align: center;
+        }
+    }
+    post-date, post-author{
+        @include grid-init($sm-up: 30);
+        @include height-lineHeight-init($sm-up: 6vh, $lg-up: 3vh);
+        text-align: left;
+        color: $secondary-color;
+        padding: 0 2vw !important;
+    }
+    post-date{
+        text-align: right;
+    }
+    post-content{
+        @extend %full-block;
+        @extend %absolute-center-parent;
+        @include height-init($sm-up: 42vh, $lg-up: 16.5vh, $lg-l: 24.5vh, $xlg-up: 17.5vh);
+        font-size: 0.85em;
+        display: block;
+        p{
+            @extend %absolute-center-item;
+            @extend %paragraph-1;
+            color: white;
+            width: 100%;
+            padding: 2vh 2vw;
+            margin: 0;
+            display: block;
+            // color: scale-color($success-color, $lightness: -60%);
+        }
+    }
+    a.comments{
+        @include width-init($sm-up: 45%, $lg-up: 20%, $lg-l: 30%);
+        @include height-lineHeight-init($sm-up: 6vh, $lg-up: 4vh);
+        font-size: 0.85em;
+        float: right;
+        text-align: center;
+        color: white;
+        margin-bottom: 1vh;
+        background: rgba($secondary-color, 0.85);
+        color: $primary-color;
+        transition: background-color 0.35s ease-in-out;
+        &:hover{
+            background: rgba($secondary-color,1);
+        }
+    }
+}
+
+#comments-modal{
+    .modal-dialog{
+        @include width-init($sm-up: 90vw, $lg-up: 75vw, $xlg-up: 55vw);
+        @extend %absolute-center-item;
+        @extend %no-space;
+    }
+    .modal-content {
+        @include gradient($startColor: #2575B5,$endColor: #114779);
+    }
+
+    comments{
+      @include grid-row();
+      display: block;
+      height: 35vh;
+      overflow-y: scroll;
+      max-width: 100%;
+      margin: 0 auto;
+
+      @media #{$large-up} {
+          max-width: 83.33333%;
+      }
+    }
+
+    message-container {
+        @include height-init($sm-up: auto, $lg-up: auto);
+        @include grid-init($sm-up: 60, $lg-l: 50, $xlg-up: 50);
+        @include grid-column($offset: 0);
+        display: inline-block;
+        &:nth-of-type(0){
+            background-color: rgba(white, 0.55);
+        }
+        @media #{$large-up} and (orientation: landscape) {
+            @include grid-column($offset: 5);
+            &:nth-of-type(even){
+                @include grid-column($offset: 5);
+            }
+        }
+        post-content{
+            @include height-init($sm-up: auto, $lg-up: auto);
+            display: inline-block;
+            p{
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: translate(-0, -0);
+                -webkit-transform: translate(-0, -0);
+            }
+        }
+        &.comment, &.new-comment {
+            @include grid-init($sm-up: 56, $lg-up: 50);
+            @include grid-column($offset: 2);
+            @media #{$large-up} {
+                @include grid-column($offset: 5);
+            }
+            post-date, post-author{
+                @include grid-init($sm-up: 30, $xlg-up: 30);
+            }
+        }
+    }
+}

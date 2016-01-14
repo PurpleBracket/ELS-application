@@ -1,0 +1,338 @@
+@mixin grid-init($sm, $md, $md-l, $lg, $lg-l, $xlg, $xxlg, $floats) {
+	@media #{$small-only} {
+		@include grid-column($columns: $sm, $float: $floats);
+	}
+	@media #{$medium-only} {
+		@include grid-column($columns: $md, $float: $floats);
+	}
+	@media #{$medium-only}  and (orientation: landscape) {
+		@include grid-column($columns: $md-l, $float: $floats);
+	}
+	@media #{$large-only} {
+		@include grid-column($columns: $lg, $float: $floats);
+	}
+	@media #{$large-only} and (orientation: landscape) {
+		@include grid-column($columns: $lg-l, $float: $floats);
+	}
+	@media #{$xlarge-only} {
+		@include grid-column($columns: $xlg, $float: $floats);
+	}
+	@media #{$xxlarge-only} {
+		@include grid-column($columns: $xxlg, $float: $floats);
+	}
+}
+
+@mixin height-init($sm, $md, $md-l, $lg, $lg-l, $xlg, $xxlg) {
+	@media #{$small-only} {
+		height: #{$sm};
+	}
+	@media #{$medium-only} {
+		height: #{$md};
+	}
+	@media #{$medium-only} and (orientation:landscape) {
+		height: #{$md-l};
+	}
+	@media #{$large-only} {
+		height: #{$lg};
+	}
+	@media #{$large-only} and (orientation:landscape) {
+		height: #{$lg-l};
+	}
+	@media #{$xlarge-only} {
+		height: #{$xlg};
+	}
+	@media #{$xxlarge-only} {
+		height: #{$xxlg};
+	}
+}
+
+@mixin width-init($sm, $md, $md-l, $lg, $lg-l, $xlg, $xxlg) {
+	@media #{$small-only} {
+		width: #{$sm};
+	}
+	@media #{$medium-only} {
+		width: #{$md};
+	}
+	@media #{$medium-only} and (orientation:landscape) {
+		width: #{$md-l};
+	}
+	@media #{$large-only} {
+		width: #{$lg};
+	}
+	@media #{$large-only} and (orientation:landscape) {
+		width: #{$lg-l};
+	}
+	@media #{$xlarge-only} {
+		width: #{$xlg};
+	}
+	@media #{$xxlarge-only} {
+		width: #{$xxlg};
+	}
+}
+
+@mixin max-width-init($sm, $md, $md-l, $lg, $lg-l, $xlg, $xxlg) {
+	@media #{$small-only} {
+		max-width: #{$sm};
+	}
+	@media #{$medium-only} {
+		max-width: #{$md};
+	}
+	@media #{$medium-only} and (orientation:landscape) {
+		max-width: #{$md-l};
+	}
+	@media #{$large-only} {
+		max-width: #{$lg};
+	}
+	@media #{$large-only} and (orientation:landscape) {
+		max-width: #{$lg-l};
+	}
+	@media #{$xlarge-only} {
+	max-width: #{$xlg};
+	}
+	@media #{$xxlarge-only} {
+		max-width: #{$xxlg};
+	}
+}
+
+@mixin font-size-init($sm, $md, $md-l, $lg, $lg-l, $xlg, $xxlg) {
+	@media #{$small-only} {
+		font-size: #{$sm};
+	}
+	@media #{$medium-only} {
+		font-size: #{$md};
+	}
+	@media #{$medium-only} and (orientation:landscape) {
+		font-size: #{$md-l};
+	}
+	@media #{$large-only} {
+		font-size: #{$lg};
+	}
+	@media #{$large-only} and (orientation:landscape) {
+		font-size: #{$lg-l};
+	}
+	@media #{$xlarge-only} {
+		font-size: #{$xlg};
+	}
+	@media #{$xxlarge-only} {
+		font-size: #{$xxlg};
+	}
+}
+
+@mixin height-init($sm, $md, $md-l, $lg, $lg-l, $xlg, $xxlg) {
+	@media #{$small-only} {
+		height: #{$sm};
+	}
+	@media #{$medium-only} {
+		height: #{$md};
+	}
+	@media #{$medium-only} and (orientation:landscape) {
+		height: #{$md-l};
+	}
+	@media #{$large-only} {
+		height: #{$lg};
+	}
+	@media #{$large-only} and (orientation:landscape) {
+		height: #{$lg-l};
+	}
+	@media #{$xlarge-only} {
+		height: #{$xlg};
+	}
+	@media #{$xxlarge-only} {
+		height: #{$xxlg};
+	}
+}
+
+@mixin norm-height-init($sm, $md, $md-l, $lg, $lg-l, $xlg, $xxlg) {
+	@media #{$small-only} {
+		height: $sm;
+	}
+	@media #{$medium-only} {
+		height: $md;
+	}
+	@media #{$medium-only} and (orientation:landscape) {
+		height: $md-l;
+	}
+	@media #{$large-only} {
+		height: $lg;
+	}
+	@media #{$large-only} and (orientation:landscape) {
+		height: $lg-l;
+	}
+	@media #{$xlarge-only} {
+		height: $xlg;
+	}
+	@media #{$xxlarge-only} {
+		height: $xxlg;
+	}
+}
+
+@mixin height-lineHeight-init($sm, $md, $md-l, $lg, $lg-l, $xlg, $xxlg) {
+	@media #{$small-only} {
+		height: #{$sm};
+		line-height: #{$sm};
+	}
+	@media #{$medium-only} {
+		height: #{$md};
+		line-height: #{$md};
+	}
+	@media #{$medium-only} and (orientation:landscape) {
+		height: #{$md-l};
+		line-height: #{$md-l};
+	}
+	@media #{$large-only} {
+		height: #{$lg};
+		line-height: #{$lg};
+	}
+	@media #{$large-only} and (orientation:landscape) {
+		height: #{$lg-l};
+		line-height: #{$lg-l};
+	}
+	@media #{$xlarge-only} {
+		height: #{$xlg};
+		line-height: #{$xlg};
+	}
+	@media #{$xxlarge-only} {
+		height: #{$xxlg};
+		line-height: #{$xxlg};
+	}
+}
+
+@mixin lineHeight-init($sm, $md, $md-l, $lg, $lg-l, $xlg, $xxlg) {
+	@media #{$small-only} {
+		line-height: #{$sm};
+	}
+	@media #{$medium-only} {
+		line-height: #{$md};
+	}
+	@media #{$medium-only} and (orientation:landscape) {
+		line-height: #{$md-l};
+	}
+	@media #{$large-only} {
+		line-height: #{$lg};
+	}
+	@media #{$large-only} and (orientation:landscape) {
+		line-height: #{$lg-l};
+	}
+	@media #{$xlarge-only} {
+		line-height: #{$xlg};
+	}
+	@media #{$xxlarge-only} {
+		line-height: #{$xxlg};
+	}
+}
+
+@mixin margin-top-init($sm, $md, $md-l, $lg, $lg-l, $xlg, $xxlg) {
+	@media #{$small-only} {
+		margin-top: $sm;
+	}
+	@media #{$medium-only} {
+		margin-top:$md;
+	}
+	@media #{$medium-only} and (orientation:landscape) {
+		margin-top:$md-l;
+	}
+	@media #{$large-only} {
+		margin-top:$lg;
+	}
+	@media #{$large-only} and (orientation:landscape) {
+		margin-top:$lg-l;
+	}
+	@media #{$xlarge-only} {
+		margin-top:$xlg;
+	}
+	@media #{$xxlarge-only} {
+		margin-top:$xxlg;
+	}
+}
+
+@mixin margin-left-init($sm, $md, $md-l, $lg, $lg-l, $xlg, $xxlg) {
+	@media #{$small-only} {
+		margin-left: $sm;
+	}
+	@media #{$medium-only} {
+		margin-left:$md;
+	}
+	@media #{$medium-only} and (orientation:landscape) {
+		margin-left:$md-l;
+	}
+	@media #{$large-only} {
+		margin-left:$lg;
+	}
+	@media #{$large-only} and (orientation:landscape) {
+		margin-left:$lg-l;
+	}
+	@media #{$xlarge-only} {
+		margin-left:$xlg;
+	}
+	@media #{$xxlarge-only} {
+		margin-left:$xxlg;
+	}
+}
+
+@mixin padding-top-init($sm, $md, $md-l, $lg, $lg-l, $xlg, $xxlg) {
+	@media #{$small-only} {
+		padding-top: $sm;
+	}
+	@media #{$medium-only} {
+		padding-top:$md;
+	}
+	@media #{$medium-only} and (orientation:landscape) {
+		padding-top:$md-l;
+	}
+	@media #{$large-only} {
+		padding-top:$lg;
+	}
+	@media #{$large-only} and (orientation:landscape) {
+		padding-top:$lg-l;
+	}
+	@media #{$xlarge-only} {
+		padding-top:$xlg;
+	}
+	@media #{$xxlarge-only} {
+		padding-top:$xxlg;
+	}
+}
+
+@mixin top-init($sm, $md, $md-l, $lg, $lg-l, $xlg, $xxlg) {
+	@media #{$small-only} {
+		top: $sm;
+	}
+	@media #{$medium-only} {
+		top:$md;
+	}
+	@media #{$medium-only} and (orientation:landscape) {
+		top:$md-l;
+	}
+	@media #{$large-only} {
+		top:$lg;
+	}
+	@media #{$large-only} and (orientation:landscape) {
+		top:$lg-l;
+	}
+	@media #{$xlarge-only} {
+		top:$xlg;
+	}
+	@media #{$xxlarge-only} {
+		top:$xxlg;
+	}
+}
+
+%no-space{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+%half-component-container{
+    @include grid-init(30, 30, 30, 30, 30, 30, 30, left);
+}
+
+%absolute-center-parent{
+    position: relative;
+}
+
+%absolute-center-item{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}

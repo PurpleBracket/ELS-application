@@ -1,0 +1,34 @@
+html, body{
+		height: 100%;
+		display: block;
+		position: relative;
+		margin: 0;
+		padding: 0;
+}
+wrapper{
+		width: 100%;
+		top: 0;
+		left: 0;
+		position: absolute;
+}
+container{
+			position: relative;
+			top: 0;
+			left: 0;
+			margin: 0;
+			padding: 0;
+			display: block;
+			width: 100%;
+			height: auto;
+			background: transparent;
+}
+
+content-container{
+		@include grid-row;
+		@include width-init(100%, 100%, 100%, 85vw, 85vw, 85vw, 85vw);
+		@include max-width-init(100%, 100%, 100%, 85vw, 85vw, 85vw, 85vw);
+		display: block;
+		// background: rgba($secondary-color, 0.4);
+		height: 100%;
+		position: relative;
+}

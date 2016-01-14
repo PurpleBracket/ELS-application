@@ -1,0 +1,218 @@
+/*
+*
+* Phonebook Nav 0.0.01
+*
+ */
+
+#profiles{
+    @include height-init($sm-up: 70vh);
+    overflow: hidden;
+    position: relative;
+}
+#alphabetical-nav--list{
+    @include height-init($sm-up: 70vh, $lg-up: 5vh);
+    @include width-init($sm-up: 5%, $lg-up: 100%);
+    @include responsive-init($prop: top, $sm-up: 8vh, $lg-up: 0vh);
+    @extend %no-space;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    display: block;
+    overflow: visible;
+    list-style: none;
+    z-index: 1000;
+    li a{
+      @include height-lineHeight-init($sm-up:  70/26*1vh, $lg-up: 5vh);
+      @include width-init($sm-up: 5vw, $lg-up: 100/26*1%);
+      margin: 0;
+      padding: 0;
+      float: right;
+      display: block;
+      font-size: 0.5em;
+      color: white;
+      background: rgba(white, 0.05);
+      text-align: center;
+      transition: font-size 0.35s ease-in-out,
+                  width 0.35s ease-in-out,
+                  height 0.35s ease-in-out,
+                  background-color 0.35s ease-in-out,
+                  color 0.35s ease-in-out,
+                  opacity 0.35s ease-in-out;
+      cursor: pointer;
+    }
+    &:hover{
+        li a{
+          @include height-lineHeight-init($sm-up:  ((70-(70/26*3))/25) * 1vh, $lg-up: 4vh);
+          @include width-init($sm-up: 5vw, $lg-up: 95/25*1%);
+          opacity: 0.5;
+          font-size: 0.35em;
+            &:hover{
+              @include height-lineHeight-init($sm-up:  70/26*3*1vh, $lg-up: 6vh);
+              @include width-init($sm-up: 7vw, $lg-up: 5%);
+              font-size: 1em;
+              color: $secondary-color;
+              background-color: rgba(white, 0.15);
+              opacity: 1;
+              text-transform: uppercase;
+            }
+        }
+    }
+    @media #{$large-up} {
+        li a{
+            display: inline-block;
+            float: left;
+
+        }
+    }
+}
+profiles-content{
+    @include grid-row;
+    @include max-width-init($sm-up: 100%);
+    @include max-height-init($sm-up: 70vh, $lg-up: 67vh);
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    .alphanav-list{
+        @extend %no-space;
+        @include grid-init($sm-up: 60);
+        @include max-height-init($sm-up: 70vh, $lg-up: 67vh);
+        height: 100%;
+        width: 100%;
+        overflow-y: scroll;
+        li{
+            @include width-init($sm-up: 100%);
+            padding: 2vh 2vw;
+            margin-bottom: 2vh;
+            ul.list-section-content{
+                @include grid-row;
+                width: 100%;
+                list-style: none;
+                li{
+                    @include grid-init($sm-up: 60, $lg-l-up: 28);
+                    @include gradient($startColor: rgba(white, 0), $endColor: rgba(white, 0.05));
+                    @include height-init($sm-up: 60vh, $lg-up: 25vh, $lg-l: 30vh, $xlg-up: 28vh);
+                    padding: 2vh 2vw !important;
+                    color: $secondary-color;
+                    @media #{$large-up} and (orientation: landscape) {
+                        @include grid-column($offset: 2);
+                        &:nth-of-type(2n+1){
+                            @include grid-column($offset: 1);
+                        }
+                    }
+                    profile-title{
+                        @include grid-row;
+                        @include width-init($sm-up: 100%, $lg-up: 50%);
+                        @include max-width-init($sm-up: 100%, $lg-up: 50%);
+                        @include height-init($sm-up: 20%, $lg-up: 30%);
+                        float: left;
+                        width: 100%;
+                        position: relative;
+                        display: inline-block;
+                        profile-img{
+                            @include grid-init($sm-up: 20, $lg-up: 18, $lg-l-up: 25);
+                            height: 100%;
+                            display: block;
+                            img{
+                                height: 10vh;
+                                width: 10vh;
+                            }
+                        }
+                        .name{
+                            @include grid-init($sm-up: 40, $lg-up: 42, $lg-l-up: 35);
+                            height: 100%;
+                            @extend %title;
+                            margin: 0 !important;
+                            padding: 0 0.25em !important;
+                            margin-top: 2vh !important;
+                            display: block;
+                            color: $secondary-color;
+                            text-align: left;
+                            line-height: 1.25;
+                            span{
+                                @extend %header-3;
+                                display: block;
+                                color: white;
+                            }
+                        }
+                    }
+                    profile-content{
+                        @include grid-row;
+                        @include width-init($sm-up: 100%, $lg-up: 50%);
+                        @include max-width-init($sm-up: 100%, $lg-up: 50%);
+                        @include height-init($sm-up: 20%, $lg-up: 30%, $lg-l-up: 20%, $xlg-up: 20%);
+                        float: left;
+                        padding: 2vh 2vw;
+                        width: 100%;
+                        height: 80%;
+                        position: relative;
+                        display: inline-block;
+                        @media #{$large-up} {
+                            padding: 0;
+                        }
+                        h5{
+                            @include grid-init($sm-up: 60);
+                            @extend %header-3;
+                            @include height-lineHeight-init($sm-up: ((10/3)*1vh));
+                            @extend %no-space;
+                            color: white;
+                            box-sizing: border-box;
+                            text-align: right;
+                            @media #{$large-up} {
+                                text-align: right;
+                            }
+                            a{
+                                color: white;
+                                transition: color 0.35s ease-in-out;
+                                &:hover{
+                                  color: $secondary-color;
+                                }
+                            }
+                            span{
+                                @include height-lineHeight-init($sm-up: ((10/3)*1vh));
+                                font-family: $font-family-sans-serif;
+                                color: $secondary-color;
+                                margin-right: 0.5em;
+                                font-size: 1em;
+                                &:before{
+                                    padding-top: 0.2em;
+                                }
+                            }
+                            &.social-media{
+                              @include grid-init($sm-up: 60);
+                                span{
+                                    display: inline-block;
+                                    padding: 0;
+                                    transition: color 0.35s ease-in-out,
+                                                font-size 0.35s ease-in-out;
+                                    &:hover{
+                                        font-size: 1.2em;
+                                        color: white;
+                                    }
+                                }
+                                a{
+                                  &:last-of-type > span{
+                                      margin-right: 0;
+                                  }
+                                }
+                            }
+                        }
+
+                    }
+                    p.bio{
+                        @include grid-init($sm-up: 60);
+                        @extend %paragraph-1;
+                        @include height-init($sm-up: 60%, $lg-up: 60%, $lg-l-up: 50%);
+                        box-sizing: border-box;
+                        overflow-y: scroll;
+                        margin-top: 7.5%;
+                    }
+                }
+            }
+        }
+    }
+    @media #{$large-up} {
+        margin-top: 5vh;
+    }
+}

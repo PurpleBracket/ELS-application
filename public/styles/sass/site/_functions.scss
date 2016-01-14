@@ -1,0 +1,12 @@
+@function set($var, $key) {
+    @if map-has-key($var, $key) {
+        @return map-get($var, $key);
+    }
+
+    @warn "Unknown `#{$key}` in $var.";
+    @return null;
+}
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+ }

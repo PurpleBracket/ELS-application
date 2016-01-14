@@ -1,0 +1,103 @@
+.accordion.faq{
+    @include grid-init($sm-up: 60);
+    @include max-height-init($sm-up: 50vh, $lg-up: 43vh, $xlg-up: 55vh, $xxlg: 52vh);
+    overflow-y: scroll;
+    display: block;
+    @media screen and (width: 1280px) {
+        max-height: 64vh;
+    }
+    dd.accordion-navigation.question{
+        transition: all 0.3s ease-in-out;
+        margin-bottom: 0 !important;
+        @media #{$large-up} {
+            margin-top: 0 !important;
+            dd.accordion-navigation{
+              margin-bottom: 0 !important;
+            }
+        }
+        &:nth-of-type(odd){
+            a{
+                background-color: rgba(white, 0.05);
+            }
+        }
+        &:nth-of-type(even){
+            a{
+                background-color: rgba(white, 0.15);
+              }
+        }
+        a{
+            transition: 0.3s background ease-in-out;
+            position: relative;
+            color: $secondary-color;
+            &.active{
+                accordion-icon.chevron{
+                    span{
+                      width: 65%;
+                        &:nth-child(1) {
+                            left: 0;
+                            transform: rotate(-135deg);
+                        }
+                        &:nth-child(2) {
+                            transform: rotate(135deg);
+                        }
+                    }
+                }
+            }
+        }
+        .question-content{
+            height: 0;
+            opacity: 0;
+            display: none;
+            transition: height 0.35s ease-in-out,
+                        opacity 0.35s ease-in-out;
+            &.active{
+                height: auto;
+                opacity: 1;
+                display: block;
+            }
+        }
+        accordion-icon.chevron {
+            width: 5vh;
+            height: 5vh;
+            margin: 0 auto;
+            box-sizing: border-box;
+            display: inline-block;
+            position: relative;
+            float: right;
+            transform: rotate(0deg);
+            transition: .5s ease-in-out;
+            cursor: pointer;
+            @media #{$large-up} {
+                width: 3vh;
+                height: 3vh;
+            }
+            span {
+                position: absolute;
+                top: 50%;
+                height: 15%;
+                width: 50%;
+                background: $secondary-color;
+                border-radius: 1vh;
+                opacity: 1;
+                left: 0;
+                transform: rotate(0deg);
+                transition: .25s ease-in-out;
+                &:nth-child(1) {
+                    transform-origin: 50% 50%;
+                    transform: rotate(-135deg) ;
+                    left: -1.25vh;
+                    @media #{$large-up} {
+                        left: -0.9vh;
+                    }
+                    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+                        left: -0.75vh;
+                    }
+                }
+                &:nth-child(2) {
+                    transform-origin: 50% 50%;
+                    transform: rotate(135deg);
+                }
+            }
+        }
+    }
+}

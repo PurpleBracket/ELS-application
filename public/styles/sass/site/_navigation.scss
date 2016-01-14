@@ -1,0 +1,442 @@
+nav#topbar{
+    @include  width-init(set($topbar-width, sm), set($topbar-width, md), set($topbar-width, md-l), set($topbar-width, lg), set($topbar-width, lg-l), set($topbar-width, xlg), set($topbar-width, xxlg));
+    @include height-init(set($topbar-height, sm),set($topbar-height, md), set($topbar-height, md-l), set($topbar-height, lg), set($topbar-height, lg-l), set($topbar-height, xlg), set($topbar-height, xxlg));
+    position: fixed;
+    display: block;
+    z-index: 1000;
+    background-color: #ffffff;
+    @media #{$large-up} {
+        background-color: transparent;
+        right: 0;
+        position: absolute;
+        padding-top: 5vh;
+        padding-right: 8vw;
+    }
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+        padding-right: 8vw;
+    }
+    logo-img{
+        @include  width-init(set($logo-img-width, sm), set($logo-img-width, md), set($logo-img-width, md-l), set($logo-img-width, lg), set($logo-img-width, lg-l), set($logo-img-width, xlg), set($logo-img-width, xxlg));
+        @include height-init(set($logo-img-height, sm),set($logo-img-height, md), set($logo-img-height, md-l), set($logo-img-height, lg), set($logo-img-height, lg-l), set($logo-img-height, xlg), set($logo-img-height, xxlg));
+        display: inline-block;
+        position: relative;
+        float: left;
+        box-sizing: border-box;
+        img{
+            @extend %absolute-center-item;
+            padding: 0 1vh;
+            overflow: visible;
+        }
+    }
+    logo-name{
+        @include width-init(set($logo-name-width, sm), set($logo-name-width, md), set($logo-name-width, md-l), set($logo-name-width, lg), set($logo-name-width, lg-l), set($logo-name-width, xlg), set($logo-name-width, xxlg));
+        @include height-init(set($logo-name-height, sm),set($logo-name-height, md), set($logo-name-height, md-l), set($logo-name-height, lg), set($logo-name-height, lg-l), set($logo-name-height, xlg), set($logo-name-height, xxlg));
+        display: inline-block;
+        position: relative;
+        float: left;
+        box-sizing: border-box;
+        a{
+            @include font-size-init(5.5vw, 5.5vw, 5.5vw, 2.85vw, 2.15vw, 1.9vw, 1.65vw);
+            @include margin-top-init(2vh, 2vh, 2vh, 2vh, 1.5vh, 1.5vh, 1.5vh);
+            @include margin-left-init(0.5vw, 0.5vw, 0.5vw, 3vw, 0.5vw, 0.5vw, 0.5vw);
+            display: block;
+            box-sizing: border-box;
+            position: relative;
+            width: 100%;
+            letter-spacing: 0.115vw;
+            height: 100%;
+            margin: 0;
+            line-height: 1.3;
+            span{
+                @include font-size-init(4vw, 3.75vw, 4vw, 2.25vw, 1.8vw, 1.25vw, 1vw);
+            }
+        }
+    }
+    nav-bar{
+        @include width-init(set($nav-bar-width, sm), set($nav-bar-width, md), set($nav-bar-width, md-l), set($nav-bar-width, lg), set($nav-bar-width, lg-l), set($nav-bar-width, xlg), set($nav-bar-width, xxlg));
+        @include height-init(set($nav-bar-height, sm),set($nav-bar-height, md), set($nav-bar-height, md-l), set($nav-bar-height, lg), set($nav-bar-height, lg-l), set($nav-bar-height, xlg), set($nav-bar-height, xxlg));
+        display: inline-block;
+        position: relative;
+        float: right;
+        background-color: $primary-color;
+        @media #{$large-up} {
+            margin-top: 2.5vh;
+        }
+        @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+            margin-top: 2vh;
+        }
+        nav-item{
+            @include  width-init(set($nav-item-width, sm), set($nav-item-width, md), set($nav-item-width, md-l), set($nav-item-width, lg), set($nav-item-width, lg-l), set($nav-item-width, xlg), set($nav-item-width, xxlg));
+            background-color: $primary-color;
+            height: 100%;
+            display: inline;
+            position: relative;
+            float: right;
+            padding: 0;
+            margin: 0;
+            border-bottom: 4px $secondary-color solid;
+            transition: width 0.3s ease-in-out,
+                        opacity 0.3s ease-in-out;
+            @media #{$large-up} {
+                &#hamburger, &#search, &#phone{
+                    display: none;
+                    width: 0;
+                }
+            }
+            &:nth-of-type(odd){
+                border-bottom: 4px scale-color($secondary-color, $lightness: -12.5%) solid;
+
+            }
+        }
+        a{
+            @include height-lineHeight-init(set($nav-bar-height, sm),set($nav-bar-height, md), set($nav-bar-height, md-l), set($nav-bar-height, lg), set($nav-bar-height, lg-l), set($nav-bar-height, xlg), set($nav-bar-height, xxlg));
+            display: block;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            text-align: center;
+            svg{
+                display: block;
+                width: 100%;
+                height: 100%;
+                padding: 2vh 0 2.5vh;
+                @media #{$large-up} {
+                    padding: 1.25vh 0 1.75vh;
+                }
+                @media #{$large-up} and (orientation: landscape) {
+                    padding: 2.25vh 0 2.75vh;
+                }
+                @media #{$xlarge-up} {
+                    padding: 0.75vh 0 0.9vh;
+                }
+            }
+        }
+        &.search-active{
+            nav-item{
+                width: 0;
+                display: hidden;
+                opacity: 0;
+                @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+                    width: 25%;
+                    display: inline-block;
+                }
+                &#search{
+                    opacity: 1;
+                    width: 83.35%;
+                    display: inline-block;
+                    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+                        width: 100%;
+                    }
+                    a{
+                        text-align: left;
+                        padding-left: 2vw;
+                    }
+                }
+                &#hamburger{
+                    opacity: 1;
+                    width: 16.65%;
+                }
+            }
+        }
+        .nav-icon {
+            width: 35%;
+            height: 10vw;
+            margin: 2.5vw auto;
+            box-sizing: border-box;
+            position: relative;
+            transform: rotate(0deg);
+            transition: .5s ease-in-out;
+            cursor: pointer;
+            span {
+                display: block;
+                position: absolute;
+                height: 3px;
+                width: 100%;
+                background: $secondary-color;
+                border-radius: 3px;
+                opacity: 1;
+                left: 0;
+                transform: rotate(0deg);
+                transition: .25s ease-in-out;
+
+                &:nth-child(1) {
+                    top: 3vw;
+                }
+                &:nth-child(2) {
+                    top: 5vw;
+                }
+                &:nth-child(3) {
+                    top: 7vw;
+                }
+            }
+            &.open{
+                span{
+                    &:nth-child(1) {
+                        top: 5vw;
+                        transform: rotate(135deg);
+                    }
+                    &:nth-child(2) {
+                        opacity: 0;
+                        left: -3vw;
+                    }
+                    &:nth-child(3) {
+                        top: 5vw;
+                        transform: rotate(-135deg);
+                    }
+                }
+            }
+        }
+    }
+    announcments-container{
+        @include width-init(set($announcments-width, sm), set($announcments-width, md), set($announcments-width, md-l), set($announcments-width, lg), set($announcments-width, lg-l), set($announcments-width, xlg), set($announcments-width, xxlg));
+        @include height-init(set($announcments-height, sm),set($announcments-height, md), set($announcments-height, md-l), set($announcments-height, lg), set($announcments-height, lg-l), set($announcments-height, xlg), set($announcments-height, xxlg));
+        margin: 0;
+        @include margin-top-init(0, 0, 0, 1vh, 1.5vh, 2vh, 1.5vh);
+        box-sizing: border-box;
+        display: none;
+        position: relative;
+        float: right;
+        line-height: 1;
+        padding: 0;
+        background: rgba($secondary-color, 1);
+        announcment-item {
+            width: 80%;
+            display: inline-block;
+            position: relative;
+            float: left;
+            transition: width 0.3s ease-in-out;
+            p{
+                @include height-lineHeight-init(set($announcments-height, sm),set($announcments-height, md), set($announcments-height, md-l), set($announcments-height, lg), set($announcments-height, lg-l), set($announcments-height, xlg), set($announcments-height, xxlg));
+                padding-left: 2vw;
+            }
+        }
+        sbar{
+            box-sizing: border-box;
+            display: inline-block;
+            width: 20%;
+            height: 100%;
+            transition: width 0.3s ease-in-out;
+            a{
+                @include height-lineHeight-init(set($announcments-height, sm),set($announcments-height, md), set($announcments-height, md-l), set($announcments-height, lg), set($announcments-height, lg-l), set($announcments-height, xlg), set($announcments-height, xxlg));
+                text-align: center;
+                display: block;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                padding-left: 1vw;
+                background-color: $primary-color;
+                color: $secondary-color;
+                position: relative;
+                span.glyphicon{
+                  @include height-lineHeight-init(set($announcments-height, sm),set($announcments-height, md), set($announcments-height, md-l), set($announcments-height, lg), set($announcments-height, lg-l), set($announcments-height, xlg), set($announcments-height, xxlg));
+                  position: absolute;
+                  left: 1vw;
+                }
+            }
+        }
+        @media #{$large-up} and (orientation: landscape){
+            display: inline-block;
+            // @include margin-top-init(1.5 * set($announcments-height, sm),1.5 * set($announcments-height, md),1.5 *  set($announcments-height, md-l),1.5 *  set($announcments-height, lg),1.5 *  set($announcments-height, lg-l), 1.5 * set($announcments-height, xlg), 1.5 * set($announcments-height, xxlg));
+            &.search-active{
+                announcment-item{
+                    width: 40%;
+                }
+                sbar{
+                    width: 60%;
+                    a{
+                        padding-left: 3.5vw;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+        @media #{$xlarge-up}{
+            &.search-active{
+                sbar{
+                    a{
+                        padding-left: 2.5vw;
+                    }
+                }
+            }
+        }
+    }
+    off-canvas-nav{
+        @include width-init(set($off-canvas-width, sm), set($off-canvas-width, md), set($off-canvas-width, md-l), set($off-canvas-width, lg), set($off-canvas-width, lg-l), set($off-canvas-width, xlg), set($off-canvas-width, xxlg));
+        @include height-init(set($off-canvas-height, sm),set($off-canvas-height, md), set($off-canvas-height, md-l), set($off-canvas-height, lg), set($off-canvas-height, lg-l), set($off-canvas-height, xlg), set($off-canvas-height, xxlg));
+        @include margin-top-init(0, 0, 0, 2vh, 1vh, 1vh, 1vh);
+        display: inline-block;
+        position: relative;
+        float: right;
+        opacity: 1;
+        transition: opacity 0.2s ease-in-out,
+                    height 0.45s ease-in-out;
+        z-index: 999999;
+        nav-item{
+            @include font-size-init(0.85em, 0.85em, 0.85em, 0.85em, 0.85em, 1em, 1em);
+            @include height-init(set($off-canvas-navitem-height, sm),set($off-canvas-navitem-height, md), set($off-canvas-navitem-height, md-l), set($off-canvas-navitem-height, lg), set($off-canvas-navitem-height, lg-l), set($off-canvas-navitem-height, xlg), set($off-canvas-navitem-height, xxlg));
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            float: left;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out,
+                        height 0.3s ease-in-out;
+            -webkit-transition: opacity 0.3s ease-in-out,
+                        height 0.3s ease-in-out;
+
+            a.nav-link{
+                @include height-lineHeight-init(set($off-canvas-navitem-height, sm),set($off-canvas-navitem-height, md), set($off-canvas-navitem-height, md-l), set($off-canvas-navitem-height, lg), set($off-canvas-navitem-height, lg-l), set($off-canvas-navitem-height, xlg), set($off-canvas-navitem-height, xxlg));
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+                color: #ffffff;
+                background-color: rgba($primary-color, 1);
+                margin: 0;
+                padding: 0;
+                // border-bottom: 4px $secondary-color solid;
+                &.active{
+                    color: $secondary-color;
+                    background-color: rgba($success-color, 1);
+                    // border-bottom: 4px scale-color($secondary-color, $lightness: 50%) solid;
+                }
+            }
+        }
+        &.hidden{
+            opacity: 0;
+            a.nav-link, nav-item{
+                opacity: 0;
+            }
+        }
+        &.collapsed{
+            height: 0;
+            a.nav-link, nav-item{
+                height: 0;
+            }
+        }
+        &.fade-in{
+            opacity: 1;
+        }
+        &.fade-out{
+            a.nav-link, nav-item{
+                opacity: 0;
+            }
+        }
+
+
+        @media #{$large-up} {
+            margin: 0;
+            padding-top: 0;
+            opacity: 1;
+            a.nav-link, nav-item{
+                width: 20%;
+                opacity: 1;
+                a{
+                    transition: background-color 0.3s ease-in-out;
+                }
+            }
+            &.collapsed, &.hidden {
+                opacity: 1;
+                height: 5vh;
+                a.nav-link, nav-item{
+                    opacity: 1;
+                    height: 5vh;
+                }
+            }
+        }
+
+        @media #{$large-only} and (orientation: portrait) {
+            // @include margin-top-init(-2.4 * set($announcments-height, sm),-2.4 * set($announcments-height, md), -2.4 * set($announcments-height, md-l), -2.4 * set($announcments-height, lg), -2.4 * set($announcments-height, lg-l), - 1 * set($announcments-height, xlg), - 1 * set($announcments-height, xxlg));
+        }
+
+
+        @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+            margin: 0;
+            height: 4vh;
+            opacity: 1;
+            a.nav-link, nav-item{
+                width: 20%;
+                opacity: 1;
+            }
+            &.collapsed, &.hidden {
+                opacity: 1;
+                height: 4vh;
+                a.nav-link, nav-item{
+                    opacity: 1;
+                    height: 4vh;
+                }
+            }
+        }
+    }
+
+    &.active{
+        transition: top 0.25s ease-in-out;
+        width: 100%;
+        height: 10vh;
+        padding-top: 0vh;
+        background: rgba(255, 255, 255, 0.9);
+        position: absolute;
+        top: -10vh;
+        padding-right: 0 !important;
+        logo-img{
+            height: 10vh;
+            width: 10vh;
+        }
+        logo-name {
+                width: 22.5vw;
+                height: 10vh;
+            a{
+                padding-top: 0.75vh;
+                font-size: 1.5vw;
+                line-height: 1.2;
+                span{
+                    font-size: 1.25vw;
+                }
+            }
+        }
+        nav-bar{
+            float: right;
+            padding-top: 0;
+            height: 10vh;
+            margin-top: 0;
+            @media #{$large-only} {
+                display: none;
+            }
+        }
+        announcments-container{
+            @include width-init(set($off-canvas-width, sm), set($off-canvas-width, md), set($off-canvas-width, md-l), set($off-canvas-width, lg), set($off-canvas-width, lg-l), set($off-canvas-width, xlg) + 5vw, set($off-canvas-width, xxlg) + 8vw);
+            float: right;
+            margin-top: 0;
+        }
+        off-canvas-nav{
+            @include width-init(set($off-canvas-width, sm), set($off-canvas-width, md), set($off-canvas-width, md-l), set($off-canvas-width, lg), set($off-canvas-width, lg-l), set($off-canvas-width, xlg) + 5vw, set($off-canvas-width, xxlg) + 8vw);
+            float: right;
+            height: 5vh;
+            a.nav-link, nav-item{
+                height: 5vh;
+                a{
+                    line-height: 5vh;
+                }
+            }
+        }
+        &.in{
+            position: fixed;
+            top: 0;
+        }
+    }
+}
+//hover effects
+html.no-touch{
+    nav#topbar{
+        off-canvas-nav{
+            nav-item{
+                a.nav-link{
+                    &:hover{
+                        background-color: $success-color;
+                    }
+                }
+            }
+        }
+    }
+}

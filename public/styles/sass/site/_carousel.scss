@@ -1,0 +1,140 @@
+#intro-slider{
+    $height: 85vh;
+    $height-m-l: 85vh;
+    @extend %full-block;
+    @extend %no-space;
+    @include height-init($sm-up: $height, $md-l: $height-m-l);
+    min-width: 90vw;
+    display: inline-block;
+    float: left;
+    transition: height 0.35s ease-in-out;
+    background: transparent !important;
+    backface-visibility: visible;
+    &.single{
+      .carousel-indicators, .carousel-control{
+          display: none;
+      }
+    }
+    .carousel-inner{
+        background: transparent !important;
+        backface-visibility: visible;
+    }
+    .item{
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        background: transparent !important;
+        backface-visibility: visible;
+        img{
+            min-width: 100%;
+            max-height: $height;
+            min-height: $height;
+            @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape){
+                max-height: $height-m-l;
+                min-height: $height-m-l;
+            }
+            transition: max-height 0.35s ease-in-out,
+                        min-height 0.35s ease-in-out;
+            backface-visibility: visible;
+        }
+    }
+    .carousel-control span[class^="icon-"] {
+        @include height-lineHeight-init($sm-up: $height, $md-l: $height-m-l);
+        font-size: 2em;
+        color: $secondary-color;
+        transition: height 0.35s ease-in-out;
+    }
+    .carousel-indicators, .carousel-control{
+        z-index: 550;
+    }
+    #overlay{
+      @include height-init($sm-up: $height);
+      width: 100%;
+      display: block;
+      position: absolute;
+      top:0;
+      left: 0;
+      z-index: 500;
+      transition: height 0.35s ease-in-out;
+    }
+
+    &.accordion-active{
+        @include height-init($sm-up: set($topbar-height, sm), $md-l: 0, $lg: 2 * set($topbar-height, lg),  $lg-l: 2 * set($topbar-height, lg-l), $xlg: 2 * set($topbar-height, xlg), $xxlg: 2 * set($topbar-height, xxlg));
+        @include margin-top-init-I($sm-up: -1 * set($logo-img-height, sm), $md-l: -50vh, $lg-up: 0);
+        .item{
+            img{
+              @include margin-top-init-I($sm-up: -1 * set($topbar-height, sm),$md-l: 0, $lg: -1 * set($topbar-height, lg),  $lg-l: -1 * set($topbar-height, lg-l), $xlg: -1 * set($topbar-height, xlg), $xxlg: -1 * set($topbar-height, xxlg));
+            }
+        }
+        #overlay{
+            @include height-init($sm-up: set($topbar-height, sm),$md-l: set($topbar-height, md-l), $lg: 2 * set($topbar-height, lg),  $lg-l: 2 * set($topbar-height, lg-l), $xlg: 2 * set($topbar-height, xlg), $xxlg: 2 * set($topbar-height, xxlg));
+        }
+        .carousel-control, .carousel-indicators, .carousel-inner, .item, .item.active, img{
+          @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape){
+              display: none;
+              height: 0;
+          }
+        }
+        a.carousel-control{
+            @media #{$small-only}, #{$medium-only} {
+                width: 0;
+                display: none;
+            }
+        }
+    }
+    &.login-active{
+        .carousel-control {
+            display: none;
+        }
+        .carousel-indicators{
+            display: none;
+        }
+    }
+}
+
+item-title{
+    @include responsive-init($prop: width, $sm-up: 80vw, $lg-up: 70vw, $xlg-up: 45vw);
+    @include responsive-init($prop: left, $sm-up: 10vw, $lg-up: 15vw, $xlg-up: 12.5vw);
+    @include responsive-init($prop: bottom, $sm-up: 15vh, $xlg-up: 7.5vh, $xxlg: 10vh);
+    position: absolute;
+    display: block;
+    color: white;
+    z-index: 600;
+    h2{
+      @extend %header-1;
+      color: white;
+      width: 100%;
+      text-shadow: 0 1px 3px rgba(black, 0.75);
+    }
+    p{
+      @include responsive-init($prop: display, $sm: none, $md: none, $md-l: none);
+      @include font-size-init($sm-up: 1.5em, $lg-up: 1.25em, $xlg-up: 1.65em);
+      color: white;
+      width: 100%;
+      text-shadow: 0 1px 3px rgba(black, 0.75);
+    }
+}
+
+#events-slider {
+      @extend %full-block;
+      @include height-init($sm-up: 65vh, $md-l: 82vh, $lg-up: 32vh, $lg-l-up: 32.5vh, $xlg-up: 32vh);
+      @extend %no-space;
+      overflow: hidden;
+      .carousel-inner, .item{
+          @include height-init($sm-up: 65vh, $md-l: 82vh, $lg-up: 32vh, $lg-l-up: 32.5vh, $xlg-up: 32vh);
+      }
+      img {
+          min-width: 100%;
+          max-height: 100%;
+          min-height: 100%;
+      }
+      .carousel-control span[class^="icon-"] {
+          @include height-lineHeight-init($sm-up: 65vh, $md-l: 82vh, $lg-up: 32vh, $lg-l-up: 32.5vh, $xlg-up: 32vh);
+          color: $secondary-color;
+      }
+      .carousel-indicators{
+          margin-bottom: 6px;
+          bottom: 6px;
+      }
+}

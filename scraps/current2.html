@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Epiphany Lutharen School</title>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link href="../public/styles/css/els-style.css" rel="stylesheet">
+
+	<script src="../public/bower_components/modernizr/modernizr.js"></script>
+
+	<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" />
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" />
+		<![endif]-->
+
+</head>
+
+<body>
+	<wrapper id="body">
+	<div id="gradient-overlay"></div>
+	<nav id="topbar">
+
+		<logo-img>
+			<a href="index2.html">
+				<img id="logo" src="../public/images/logo.svg" alt="" />
+			</a>
+		</logo-img>
+
+		<logo-name>
+			<a href="index2.html">Epiphany Lutharen School<br>
+									<span>Meow Meow Meow Meow </span>
+			</a>
+		</logo-name>
+
+		<nav-bar>
+			<nav-item id="hamburger">
+				<a class="nav-icon">
+					<div id="nav-icon">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</a>
+			</nav-item>
+			<nav-item id="search">
+				<a class="search-icon"><span class="icon-search" aria-hidden="true"></span></a>
+				<form>
+					<label>
+						<input class="search-input" type="text" placeholder="What are you looking for?" />
+					</label>
+					<a href="#" class="post-button"><span class="icon-right" aria-hidden="true"></a>
+				</form>
+			</nav-item>
+			<nav-item>
+				<a href="" class="icon">
+					<span class="icon-fb" aria-hidden="true"></span>
+				</a>
+			</nav-item>
+			<nav-item data-toggle="modal" data-target="#locationModal">
+				<a class="icon"><span class="icon-location" aria-hidden="true"></span></a>
+			</nav-item>
+			<nav-item data-toggle="modal" data-target="#contactModal">
+				<a class="icon"><span class="icon-message" aria-hidden="true"></span></a>
+			</nav-item>
+			<nav-item data-toggle="modal" data-target="#callModal">
+				<a class="icon"><span class="icon-call" aria-hidden="true"></span></a>
+			</nav-item>
+		</nav-bar>
+
+		<announcments-container>
+
+			<div id="announcments-carousel">
+				<div class="modern-ticker">
+					<div class="mt-body">
+						<div class="mt-news">
+							<ul>
+								<li><a href="#" target="_self">News 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1</a>
+								</li>
+								<li><a href="#" target="_self">News 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2</a>
+								</li>
+								<li><a href="#" target="_self">News 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3</a>
+								</li>
+								<li><a href="#" target="_self">News 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4</a>
+								</li>
+								<li><a href="#" target="_self">News 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5</a>
+								</li>
+							</ul>
+						</div>
+						<div class="mt-controls">
+							<div class="mt-prev"><span class="icon-left" aria-hidden="true"></span>
+							</div>
+							<div class="mt-play"><span class="icon-pause" aria-hidden="true"></span>
+							</div>
+							<div class="mt-next"><span class="icon-right" aria-hidden="true"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<sbar>
+				<a class="searchbar-icon">
+					<span class="icon-search" aria-hidden="true"></span>Search
+				</a>
+				<form>
+					<label>
+						<input class="search-input" type="text" placeholder="What are you looking for?" />
+					</label>
+					<a href="#" class="post-button"><span class="icon-right" aria-hidden="true"></a>
+				</form>
+			</sbar>
+		</announcments-container>
+
+		<off-canvas-nav id="off-canvas-nav" class="hidden collapsed">
+			<nav-item>
+				<a class="nav-link" href="prospectives2.html">Prospectives</a>
+			</nav-item>
+			<nav-item>
+				<a class="nav-link active" href="current2.html">Current</a>
+			</nav-item>
+			<nav-item>
+				<a class="nav-link" href="alumni2.html">Alumni</a>
+			</nav-item>
+			<nav-item>
+				<a class="nav-link" href="about2.html">About</a>
+			</nav-item>
+			<nav-item>
+				<a class="nav-link" data-toggle="modal" data-target="#churchModal">Church</a>
+			</nav-item>
+		</off-canvas-nav>
+	</nav>
+
+		<container data-equalizer="section-2" data-equalizer-mq="large-up">
+			<div id="intro-slider" class="carousel slide">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#intro-slider" data-slide-to="0" class="active"></li>
+					<li data-target="#intro-slider" data-slide-to="1"></li>
+					<li data-target="#intro-slider" data-slide-to="2"></li>
+					<li data-target="#intro-slider" data-slide-to="3"></li>
+					<li data-target="#intro-slider" data-slide-to="4"></li>
+					<li data-target="#intro-slider" data-slide-to="5"></li>
+				</ol>
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<img src="../public/images/temp.jpg" alt="" />
+					</div>
+					<div class="item">
+						<img src="../public/images/temp.jpg" alt="" />
+					</div>
+					<div class="item">
+						<img src="../public/images/temp.jpg" alt="" />
+					</div>
+					<div class="item">
+						<img src="../public/images/temp.jpg" alt="" />
+					</div>
+					<div class="item">
+						<img src="../public/images/temp.jpg" alt="" />
+					</div>
+					<div class="item">
+						<img src="../public/images/temp.jpg" alt="" />
+					</div>
+				</div>
+				<!-- Controls -->
+				<a class="left carousel-control" href="#intro-slider" role="button" data-slide="prev"> <span class="icon-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+				<a class="right carousel-control" href="#intro-slider" role="button" data-slide="next"> <span class="icon-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+			</div>
+			<content-container data-equalizer="section">
+				<dl class="accordion accordion-section" data-accordion>
+						<dd class="accordion-navigation" id="current-newsletter" class="current">
+								<a href="#newsletter" class="section acc-nav">Epiphany Newsletter
+										<accordion-icon class="chevron down">
+												<span></span>
+												<span></span>
+										</accordion-icon>
+								</a>
+								<div id="newsletter" class="content section" data-equalizer-watch="section-1">
+									<container-row>
+											<div id="newsletter-slider" class="carousel slide carousel-fade">
+												<!-- Indicators -->
+												<ol class="carousel-indicators">
+													<li data-target="#newsletter-slider" data-slide-to="0" class="active"></li>
+													<li data-target="#newsletter-slider" data-slide-to="1"></li>
+													<li data-target="#newsletter-slider" data-slide-to="2"></li>
+													<li data-target="#newsletter-slider" data-slide-to="3"></li>
+													<li data-target="#newsletter-slider" data-slide-to="4"></li>
+													<li data-target="#newsletter-slider" data-slide-to="5"></li>
+													<li data-target="#newsletter-slider" data-slide-to="6"></li>
+													<li data-target="#newsletter-slider" data-slide-to="7"></li>
+												</ol>
+												<!-- Wrapper for slides -->
+												<div class="carousel-inner" role="listbox">
+													<div class="item newsletter-item alumni active">
+														<newsletter-container>
+															<title>newsletter Item</title>
+															<description>
+																	Panel 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+															</description>
+														</newsletter-container>
+													</div>
+													<div class="item newsletter-item alumni">
+														<newsletter-container>
+															<title>newsletter Item</title>
+															<description>
+																	Panel 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+															</description>
+														</newsletter-container>
+													</div>
+													<div class="item newsletter-item alumni">
+														<newsletter-container>
+															<title>newsletter Item</title>
+															<description>
+																	Panel 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+															</description>
+														</newsletter-container>
+													</div>
+													<div class="item newsletter-item alumni">
+														<newsletter-container>
+															<title>newsletter Item</title>
+															<description>
+																	Panel 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+															</description>
+														</newsletter-container>
+													</div>
+													<div class="item newsletter-item alumni">
+														<newsletter-container>
+															<title>newsletter Item</title>
+															<description>
+																	Panel 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+															</description>
+														</newsletter-container>
+													</div>
+													<div class="item newsletter-item alumni">
+														<newsletter-container>
+															<title>newsletter Item</title>
+															<description>
+																	Panel 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+															</description>
+														</newsletter-container>
+													</div>
+													<div class="item newsletter-item alumni">
+														<newsletter-container>
+															<title>newsletter Item</title>
+															<description>
+																	Panel 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+															</description>
+														</newsletter-container>
+													</div>
+													<div class="item newsletter-item alumni">
+														<newsletter-container>
+															<title>newsletter Item</title>
+															<description>
+																	Panel 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+															</description>
+														</newsletter-container>
+													</div>
+												</div>
+												<!-- Controls -->
+												<a class="left carousel-control" href="#newsletter-slider" role="button"> <span class="icon-left" aria-hidden="true"> <span class="sr-only">Previous</span> </a>
+												<a class="right carousel-control" href="#newsletter-slider" role="button"><span class="icon-right" aria-hidden="true"> <span class="sr-only">Next</span> </a>
+											</div>
+									</container-row>
+								</div>
+						</dd>
+						<dd class="accordion-navigation" id="events-current" class="current">
+							<a href="#events-calender" class="section acc-nav">Events Calender
+									<accordion-icon class="chevron down">
+											<span></span>
+											<span></span>
+									</accordion-icon>
+							</a>
+							<div id="events-calender" class="content section" data-equalizer-watch="section-1">
+								<div class="text-center">
+									<div id="myCalendar" class="jalendar">
+										<!-- event list available without type parameter -->
+										<div class="added-event" data-link="http://google.com" data-time="8:00 pm"data-date="10-30-2015" data-title="Jalendar is ready for sale" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+										<div class="added-event" data-time="8:00 pm" data-date="10-4-2015" data-title="Big event for big day" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+										<div class="added-event" data-link="http://google.com" data-time="8:00 pm"data-date="10-31-2015" data-title="Jalendar is ready for sale" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+										<div class="added-event" data-time="8:00 pm"data-date="10-14-2015" data-title="Big event for big day" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+
+										<div class="added-event" data-link="http://google.com" data-time="8:00 pm"data-date="10-30-2015" data-title="Jalendar is ready for sale" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+										<div class="added-event "data-time="8:00 pm" data-date="10-4-2015" data-title="Big event for big day" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+										<div class="added-event" data-link="http://google.com" data-time="8:00 pm"data-date="10-31-2015" data-title="Jalendar is ready for sale" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+										<div class="added-event" data-time="8:00 pm"data-date="10-14-2015" data-title="Big event for big day" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+
+										<div class="added-event" data-link="http://google.com" data-time="8:00 pm"data-date="11-1-2015" data-title="Jalendar is ready for sale" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+										<div class="added-event" data-time="8:00 pm"data-date="11-1-2015" data-title="Big event for big day" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+										<div class="added-event" data-link="http://google.com" data-time="8:00 pm"data-date="11-30-2015" data-title="Jalendar is ready for sale" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+										<div class="added-event" data-time="8:00 pm" data-date="11-4-2015" data-title="Big event for big day" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+										<div class="added-event" data-link="http://google.com" data-time="8:00 pm"data-date="11-31-2015" data-title="Jalendar is ready for sale" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+										<div class="added-event" data-time="8:00 pm"data-date="11-14-2015" data-title="Big event for big day" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+
+										<div class="added-event" data-link="http://google.com" data-time="8:00 pm"data-date="11-30-2015" data-title="Jalendar is ready for sale" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+										<div class="added-event "data-time="8:00 pm" data-date="11-4-2015" data-title="Big event for big day" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+										<div class="added-event" data-link="http://google.com" data-time="8:00 pm"data-date="11-31-2015" data-title="Jalendar is ready for sale" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+										<div class="added-event" data-time="8:00 pm"data-date="11-14-2015" data-title="Big event for big day" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem ipsum dolor sit amet, consectetur adipisicing elit."></div>
+
+									</div>
+								</div>
+							</div>
+						</dd>
+						<dd class="accordion-navigation" id="student-highlight-current--block">
+							<a href="#student-highlight-current" class="section acc-nav">student Highlight
+									<accordion-icon class="chevron down">
+											<span></span>
+											<span></span>
+									</accordion-icon>
+							</a>
+							<div id="student-highlight-current" class="content section" data-equalizer-watch="section-2">
+									<container-row>
+										<student-highlight>
+											<container-row>
+												<highlight-image-container>
+													<img src="http://placehold.it/300x200" alt="" />
+												</highlight-image-container>
+												<highlight-content-container>
+													<content>
+														<h1>name name</h1>
+														<h5>5th Grade</h5>
+													</content>
+												</highlight-content-container>
+											</container-row>
+										</student-highlight>
+									</container-row>
+							</div>
+						</dd>
+						<dd class="accordion-navigation" id='honor-roll--block'>
+							<a href="#honor-roll" class="section acc-nav">Honor Roll
+									<accordion-icon class="chevron down">
+											<span></span>
+											<span></span>
+									</accordion-icon>
+							</a>
+							<div id="honor-roll" class="content section" data-equalizer-watch="section-2">
+									<container-row>
+										<content-block class="has-dropdown">
+												<form>
+														<select id='class-select'>
+																<option value='0'>Pre K</option>
+																<option value='1'>Nursery</option>
+																<option value='2'>1</option>
+																<option value='3'>2</option>
+																<option value='4'>3</option>
+																<option value='5'>4</option>
+														</select>
+												</form>
+												<ul class="nav nav-tabs nav-justified" id="class-list">
+														<li class="active"><a href="#preK">Pre K</a></li>
+														<li><a href="#nursery">Nursery</a></li>
+														<li><a href="#1-grade">1</a></li>
+														<li><a href="#2-grade">2</a></li>
+														<li><a href="#3-grade">3</a></li>
+														<li><a href="#4-grade">4</a></li>
+												</ul>
+												<div class="tab-content">
+														<div class="tab-pane active" id="preK">
+															<container-row>
+																	<ul class="honor-roll--list">
+																			<li class="title">First Honors</li>
+																			<li>Name Name</li>
+																			<li>Name Name</li>
+																			<li>Name Name</li>
+																	</ul>
+																	<ul class="honor-roll--list">
+																			<li class="title">Second Honors</li>
+																			<li>Name Name</li>
+																			<li>Name Name</li>
+																			<li>Name Name</li>
+																	</ul>
+																	<ul class="honor-roll--list">
+																			<li class="title">Most Improved</li>
+																			<li>Name Name</li>
+																			<li>Name Name</li>
+																			<li>Name Name</li>
+																	</ul>
+															</container-row>
+														</div>
+														<div class="tab-pane" id="nursery">
+															<ul class="honor-roll--list">
+																	<li class="title">First Honors</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+															</ul>
+															<ul class="honor-roll--list">
+																	<li class="title">Second Honors</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+															</ul>
+															<ul class="honor-roll--list">
+																	<li class="title">Most Improved</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+															</ul>
+														</div>
+														<div class="tab-pane" id="1-grade">
+															<ul class="honor-roll--list">
+																	<li class="title">First Honors</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+															</ul>
+															<ul class="honor-roll--list">
+																	<li class="title">Second Honors</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+															</ul>
+															<ul class="honor-roll--list">
+																	<li class="title">Most Improved</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+															</ul>
+														</div>
+														<div class="tab-pane" id="2-grade">
+															<ul class="honor-roll--list">
+																	<li class="title">First Honors</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+															</ul>
+															<ul class="honor-roll--list">
+																	<li class="title">Second Honors</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+															</ul>
+															<ul class="honor-roll--list">
+																	<li class="title">Most Improved</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+															</ul>
+														</div>
+														<div class="tab-pane" id="3-grade">
+															<ul class="honor-roll--list">
+																	<li class="title">First Honors</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+															</ul>
+															<ul class="honor-roll--list">
+																	<li class="title">Second Honors</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+															</ul>
+															<ul class="honor-roll--list">
+																	<li class="title">Most Improved</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+															</ul>
+														</div>
+														<div class="tab-pane" id="4-grade">
+															<ul class="honor-roll--list">
+																	<li class="title">First Honors</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+															</ul>
+															<ul class="honor-roll--list">
+																	<li class="title">Second Honors</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+															</ul>
+															<ul class="honor-roll--list">
+																	<li class="title">Most Improved</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+																	<li>Name Name</li>
+															</ul>
+														</div>
+												</div>
+										</content-block>
+									</container-row>
+							</div>
+						</dd>
+						<dd class="accordion-navigation">
+							<a href="#supplies" class="section acc-nav">Supplies and Reading Materials
+									<accordion-icon class="chevron down">
+											<span></span>
+											<span></span>
+									</accordion-icon>
+							</a>
+							<div id="supplies" class="content section">
+									<container-row data-equalizer="lists">
+										<content-block class="has-dropdown" data-equalizer-watch="lists">
+												<title>Supply List</title>
+												<form>
+												    <select id='supplies-select'>
+												        <option value='0'>Home</option>
+												        <option value='1'>Profile</option>
+												        <option value='2'>Messages</option>
+												        <option value='3'>Settings</option>
+												    </select>
+												</form>
+												<ul class="nav nav-tabs" id="supplies-list">
+												    <li class="active"><a href="#first-grade-supplies">Home</a></li>
+												    <li><a href="#second-grade-supplies">Profile</a></li>
+												    <li><a href="#third-grade-supplies">Messages</a></li>
+												    <li><a href="#fourth-grade-supplies">Settings</a></li>
+												</ul>
+												<div class="tab-content">
+												    <div class="tab-pane active" id="first-grade-supplies">
+															<ul>
+																	<li>somthing funny</li>
+																	<li>somthing funny</li>
+																	<li>somthing funny</li>
+																	<li>somthing funny</li>
+																	<li>somthing funny</li>
+															</ul>
+														</div>
+												    <div class="tab-pane" id="second-grade-supplies">
+															<ul>
+																	<li>somthing somthing</li>
+																	<li>somthing somthing</li>
+																	<li>somthing somthing</li>
+																	<li>somthing somthing</li>
+																	<li>somthing somthing</li>
+															</ul>
+														</div>
+												    <div class="tab-pane" id="third-grade-supplies">
+															<ul>
+																	<li>somthing else</li>
+																	<li>somthing else</li>
+																	<li>somthing else</li>
+																	<li>somthing else</li>
+																	<li>somthing else</li>
+															</ul>
+														</div>
+												    <div class="tab-pane" id="fourth-grade-supplies">
+															<ul>
+																	<li>somthing cool</li>
+																	<li>somthing cool</li>
+																	<li>somthing cool</li>
+																	<li>somthing cool</li>
+																	<li>somthing cool</li>
+															</ul>
+														</div>
+												</div>
+										</content-block>
+
+										<content-block class="has-dropdown" data-equalizer-watch="lists">
+												<title>reading List</title>
+												<form>
+												    <select id='reading-select'>
+												        <option value='0'>Home</option>
+												        <option value='1'>Profile</option>
+												        <option value='2'>Messages</option>
+												        <option value='3'>Settings</option>
+												    </select>
+												</form>
+												<ul class="nav nav-tabs" id="reading-list">
+												    <li class="active"><a href="#first-grade-reading">Home</a></li>
+												    <li><a href="#second-grade-reading">Profile</a></li>
+												    <li><a href="#third-grade-reading">Messages</a></li>
+												    <li><a href="#fourth-grade-reading">Settings</a></li>
+												</ul>
+												<div class="tab-content">
+												    <div class="tab-pane active" id="first-grade-reading">
+															<ul>
+																	<li>somthing funny</li>
+																	<li>somthing funny</li>
+																	<li>somthing funny</li>
+																	<li>somthing funny</li>
+																	<li>somthing funny</li>
+															</ul>
+														</div>
+												    <div class="tab-pane" id="second-grade-reading">
+															<ul>
+																	<li>somthing somthing</li>
+																	<li>somthing somthing</li>
+																	<li>somthing somthing</li>
+																	<li>somthing somthing</li>
+																	<li>somthing somthing</li>
+															</ul>
+														</div>
+												    <div class="tab-pane" id="third-grade-reading">
+															<ul>
+																	<li>somthing else</li>
+																	<li>somthing else</li>
+																	<li>somthing else</li>
+																	<li>somthing else</li>
+																	<li>somthing else</li>
+															</ul>
+														</div>
+												    <div class="tab-pane" id="fourth-grade-reading">
+															<ul>
+																	<li>somthing cool</li>
+																	<li>somthing cool</li>
+																	<li>somthing cool</li>
+																	<li>somthing cool</li>
+																	<li>somthing cool</li>
+															</ul>
+														</div>
+												</div>
+										</content-block>
+									</container-row>
+							</div>
+						</dd>
+				</dl>
+			</content-container>
+			<legal-tag>Copyright (c) 2015 Epiphany Lutheran School<br>All Rights Reserved</legal-tag>
+		</container>
+
+		<!-- Modals -->
+		<div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog modal-lg" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="myModalLabel">find us</h4>
+						<a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+		      </div>
+		      <div class="modal-body">
+						<img src="http://placehold.it/500x350?text=map" alt="" />
+		      </div>
+		      <div class="modal-footer">
+		        <a data-dismiss="modal">Close</a>
+		        <a>Find your way here</a>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel">contact us</h4>
+						<a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+					</div>
+					<div class="modal-body">
+							<form>
+								<!-- <label id="teacher" class="">Teacher
+										<select>
+												<option value="none">Select teacher</option>
+												<option value="husker">Husker</option>
+												<option value="starbuck">Starbuck</option>
+												<option value="hotdog">Hot Dog</option>
+												<option value="apollo">Apollo</option>
+										</select>
+								</label> -->
+
+								<label for="name" class="form-label">Name</label>
+								<input class="form-input"type="text" id="name" placeholder="Your Name">
+
+								<label for="phone" class="form-label">Phone</label>
+								<input class="form-input"type="text" id="phone" placeholder="Can we call you?">
+
+								<label for="email" class="form-label">Email</label>
+								<input class="form-input"type="text" id="email" placeholder="How can we reach you?">
+
+								<label for="subject" class="form-label">Subject</label>
+								<input class="form-input"type="text" id="subject" placeholder="How can we help?">
+
+								<label for="message" class="form-label">
+										<textarea id="message" placeholder="Include all relevant information" rows="4"></textarea>
+								</label>
+
+
+							<a href="#" class="button secondary small send-button">Send Message</a>
+							</form>
+					</div>
+					<div class="modal-footer">
+						<a data-dismiss="modal">Close</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="callModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel">call us</h4>
+						<a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+					</div>
+					<div class="modal-body">
+							<h5>Admin</h5>
+							<p>000-000-0000</p>
+
+							<h5>Church</h5>
+							<p>000-000-0000</p>
+
+							<h5>Bla Bla</h5>
+							<p>000-000-0000</p>
+					</div>
+					<div class="modal-footer">
+						<a data-dismiss="modal">Close</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</wrapper>
+
+	<script src="../public/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../public/bower_components/foundation/js/foundation.min.js"></script>
+	<script src="../public/bootstrap/bootstrap-3.3.4.min.js"></script>
+
+
+	<script src="../public/dist/js/app.min.js"></script>
+	<script>
+	$('#mySelect').on('change', function (e) {
+	    $('#myTab li a').eq($(this).val()).tab('show');
+	});
+	</script>
+</body>
+
+</html>

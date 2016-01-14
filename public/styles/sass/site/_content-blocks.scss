@@ -1,0 +1,157 @@
+content-block{
+    @extend %halfSm-fullLg-block;
+    @include height-init($sm-up: 100%, $xlg-up: auto);
+    padding: 2vh 1vw !important;
+    border: 0;
+    margin-bottom: 2vh;
+    @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape){
+        margin-bottom: 5vh;
+    }
+    &.third{
+      @include grid-init($sm-up: 60, $xlg-up: 20);
+
+    }
+    title{
+        @extend %title;
+        color: $secondary-color;
+    }
+    p{
+        padding: 1vh 2vh;
+        color: white;
+    }
+    @media #{$large-up} and (orientation: landscape) {
+        @include grid-column($offset: 0);
+    }
+    .admission-img-half{
+        // @include grid-column($columns: 30);
+        @include grid-init($sm-up: 60, $md-l: 30, $lg-up: 30);
+        // @include height-init($sm-up: 40vh, $md-l: 65vh, $lg-up: 30vh, $xlg-up: 27.5vh);
+    }
+
+    uniforms-content{
+        @include height-init($sm-up: 100%, $xlg-up: auto);
+        width: 100%;
+        position: relative;
+        display: inline-block;
+        ul {
+            @include grid-init($sm-up: 60, $md-l: 30, $lg-up: 30);
+            float: left;
+            padding: 2vh;
+            margin: 0;
+            @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape), #{$large-only} {
+              position: absolute;
+              top: 50%;
+              left: 100%;
+              transform: translate(-100%, -50%);
+              -webkit-transform: translate(-100%, -50%);
+            }
+            li{
+                list-style: none;
+                text-align: center;
+                color: white;
+                @media #{$large-up}{
+                  text-align: left;
+                }
+            }
+        }
+    }
+
+    &.has-dropdown{
+        form{
+            width: 80%;
+            margin: 0 auto;
+            select{
+                @include height-lineHeight-init($sm-up: 6vh, $md-l: 15vh, $lg-up: 5vh);
+                @extend %no-space;
+                margin-bottom: 2vh !important;
+                background: rgba($secondary-color, 0.75);
+                border-bottom: 4px scale-color($secondary-color, $lightness: -12.5%) solid;
+                color: $primary-color;
+                font-family: $font-family-serif;
+                option{
+                    @include height-lineHeight-init($sm-up: 6vh, $md-l: 15vh, $lg-up: 5vh);
+                }
+            }
+        }
+        .nav-tabs{
+            display: none;
+        }
+        .tab-pane{
+            container-row{
+              max-width: 100%;
+              @extend %no-space;
+            }
+            ul {
+                width: 80%;
+                padding: 2vh 2vw;
+                margin: 0 auto;
+                li{
+                    list-style: none;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+#login-section {
+  @include margin-top-init($sm-up: -40% !important, $lg-l-up: -10% !important);
+  z-index: 9000;
+}
+#login-block{
+    @include grid-init($sm-up: 54, $lg-up: 40, $lg-l-up: 30, $xlg-up: 18, $xxlg: 14);
+    @include grid-column($offset: 3);
+    @media #{$large-up} and (orientation: portrait) {
+        @include grid-column($offset: 10);
+    }
+    @media #{$large-up} and (orientation: landscape) {
+        @include grid-column($offset: 15);
+    }
+    @media #{$xlarge-up} {
+        @include grid-column($offset: 21);
+    }
+    @media #{$xxlarge-up} {
+        @include grid-column($offset: 23);
+    }
+    #login{
+        form{
+          @include max-width-init($sm-up: 85%);
+          margin: 0 auto;
+          padding: 2em 0;
+        }
+        label{
+            @include width-init($sm-up: 30%, $lg-up: 30%, $lg-l-up: 25%);
+            @include height-lineHeight-init($sm-up: 3em);
+            float: left;
+            margin: 0;
+            margin-bottom: 2vh;
+       }
+        input{
+            @include width-init($sm-up: 70%, $lg-up: 70%, $lg-l-up: 75%);
+            @include height-lineHeight-init($sm-up: 3em);
+            float: left;
+            margin: 0;
+            margin-bottom: 2vh;
+       }
+       a{
+          display: inline-block;
+          height: 5vh;
+          line-height: 5vh;
+          padding: 0 2em;
+          margin-bottom: 2vh;
+          background: rgba($secondary-color, 0.45);
+          color: $success-color;
+          float: right;
+          transition: background-color 0.35s ease-in-out,
+                      color 0.35s ease-in-out;
+          &.disabled{
+              background: rgba($secondary-color, 0.15);
+              color: $success-color;
+          }
+          &:hover{
+              color: $primary-color;
+              background-color: $secondary-color;
+          }
+       }
+    }
+
+}

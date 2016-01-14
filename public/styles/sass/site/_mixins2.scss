@@ -1,0 +1,886 @@
+@function set($var, $key) {
+    @if map-has-key($var, $key) {
+        @return map-get($var, $key);
+    }
+
+    @warn "Unknown `#{$key}` in $var.";
+    @return null;
+}
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+ }
+
+ @mixin gradient ($startColor: #eee, $endColor: white) {
+    //  background-color: $startColor;
+     background: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+     background: -webkit-linear-gradient(top, $startColor, $endColor);
+     background: -moz-linear-gradient(top, $startColor, $endColor);
+     background: -ms-linear-gradient(top, $startColor, $endColor);
+     background: -o-linear-gradient(top, $startColor, $endColor);
+ }
+
+
+@mixin responsive-init($prop, $sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null){
+  @if $sm{
+    @media #{$small-only} { #{$prop}: $sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} { #{$prop}: $sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) { #{$prop}: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) { #{$prop}: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} { #{$prop}: $md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} { #{$prop}: $md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) { #{$prop}: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) { #{$prop}: $md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} { #{$prop}: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} { #{$prop}: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) { #{$prop}: $lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up}, #{$xlarge-up} { #{$prop}: $lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} { #{$prop}: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} { #{$prop}: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} { #{$prop}: $xxlg;}
+  }
+}
+
+@mixin grid-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null, $floats:"left") {
+  @if $sm{
+    @media #{$small-only} {@include grid-column($columns: $sm, $float: $floats);}
+  }
+  @if $sm-up{
+    @media #{$small-up} {@include grid-column($columns: $sm-up, $float: $floats);}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) {@include grid-column($columns: $sm-l, $float: $floats);}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) {@include grid-column($columns: $sm-l-up, $float: $floats);}
+  }
+  @if $md{
+    @media #{$medium-only} {@include grid-column($columns: $md, $float: $floats);}
+  }
+  @if $md-up{
+    @media #{$medium-up} {@include grid-column($columns: $md-up, $float: $floats);}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) {@include grid-column($columns: $md-l, $float: $floats);}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) {@include grid-column($columns: $md-l-up, $float: $floats);}
+  }
+  @if $lg{
+    @media #{$large-only} {@include grid-column($columns: $lg, $float: $floats);}
+  }
+  @if $lg-up{
+    @media #{$large-up} {@include grid-column($columns: $lg-up, $float: $floats);}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) {@include grid-column($columns: $lg-l, $float: $floats);}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up}, #{$xlarge-up} {@include grid-column($columns: $lg-l-up, $float: $floats);}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} {@include grid-column($columns: $xlg, $float: $floats);}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} {@include grid-column($columns: $xlg-up, $float: $floats);}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} {@include grid-column($columns: $xxlg, $float: $floats);}
+  }
+}
+
+@mixin height-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} { height: $sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} { height: $sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) { height: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) { height: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} { height: $md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} { height: $md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) { height: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) { height: $md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} { height: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} { height: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) { height: $lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up}, #{$xlarge-up} { height: $lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} { height: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} { height: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} { height: $xxlg;}
+  }
+}
+
+@mixin min-height-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} { min-height: $sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} { min-height: $sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) { min-height: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) { min-height: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} { min-height: $md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} { min-height: $md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) { min-height: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) { min-height: $md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} { min-height: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} { min-height: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) { min-height: $lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up}, #{$xlarge-up} { min-height: $lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} { min-height: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} { min-height: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} { min-height: $xxlg;}
+  }
+}
+
+
+@mixin max-height-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} { max-height: $sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} { max-height: $sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) { max-height: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) { max-height: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} { max-height: $md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} { max-height: $md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) { max-height: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) { max-height: $md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} { max-height: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} { max-height: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) { max-height: $lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up}, #{$xlarge-up} { max-height: $lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} { max-height: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} { max-height: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} { max-height: $xxlg;}
+  }
+}
+
+@mixin width-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} { width: $sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} { width: $sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) { width: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) { width: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} { width: $md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} { width: $md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) { width: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) { width: $md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} { width: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} { width: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) { width: $lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} { width: $lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} { width: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} { width: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} { width: $xxlg;}
+  }
+}
+
+@mixin max-width-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} { max-width: $sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} { max-width: $sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) { max-width: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) { max-width: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} { max-width: $md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} { max-width: $md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) { max-width: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) { max-width: $md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} { max-width: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} { max-width: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) { max-width: $lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} { max-width: $lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} { max-width: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} { max-width: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} { max-width: $xxlg;}
+  }
+}
+
+@mixin min-width-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} { min-width: $sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} { min-width: $sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) { min-width: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) { min-width: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} { min-width: $md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} { min-width: $md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) { min-width: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) { min-width: $md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} { min-width: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} { min-width: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) { min-width: $lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} { min-width: $lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} { min-width: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} { min-width: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} { min-width: $xxlg;}
+  }
+}
+
+@mixin font-size-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} { font-size: $sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} { font-size: $sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) { font-size: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) { font-size: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} { font-size: $md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} { font-size: $md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) { font-size: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) { font-size: $md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} { font-size: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} { font-size: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) { font-size: $lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} { font-size: $lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} { font-size: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} { font-size: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} { font-size: $xxlg;}
+  }
+}
+
+@mixin height-lineHeight-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} {line-height:$sm; height: $sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} {line-height:$sm-up; height: $sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) {height: $sm-l; line-height: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) {height: $sm-l-up; line-height: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} {line-height:$md; height: $md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} {line-height:$md-up; height: $md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) {line-height: $md-l; height: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) {line-height:$md-l-up; height: $md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} {line-height: $lg; height: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} {line-height: $lg-up; height: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) {line-height:$lg-l; height: $lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {line-height:$lg-l-up; height: $lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} {line-height: $xlg; height: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} {line-height: $xlg-up; height: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} {line-height: $xxlg; height: $xxlg;}
+  }
+}
+
+@mixin lineHeight-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} {line-height:$sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} {line-height:$sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) {line-height: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) {line-height: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} {line-height:$md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} {line-height:$md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) {line-height: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) {line-height:$md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} {line-height: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} {line-height: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) {line-height:$lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {line-height:$lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} {line-height: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} {line-height: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} {line-height: $xxlg;}
+  }
+}
+
+@mixin margin-top-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} { margin-top: $sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} { margin-top: $sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) {margin-top: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) {margin-top: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} { margin-top: $md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} { margin-top: $md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) { margin-top: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) { margin-top: $md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} { margin-top: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} { margin-top: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) { margin-top: $lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} { margin-top: $lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} { margin-top: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} { margin-top: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} { margin-top: $xxlg;}
+  }
+}
+
+@mixin margin-top-init-I($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} { margin-top: $sm !important;}
+  }
+  @if $sm-up{
+    @media #{$small-up} { margin-top: $sm-up !important;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) {margin-top: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) {margin-top: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} { margin-top: $md !important;}
+  }
+  @if $md-up{
+    @media #{$medium-up} { margin-top: $md-up !important;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) { margin-top: $md-l !important;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) { margin-top: $md-l-up !important;}
+  }
+  @if $lg{
+    @media #{$large-only} { margin-top: $lg !important;}
+  }
+  @if $lg-up{
+    @media #{$large-up} { margin-top: $lg-up !important;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) { margin-top: $lg-l !important;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} { margin-top: $lg-l-up !important;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} { margin-top: $xlg !important;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} { margin-top: $xlg-up !important;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} { margin-top: $xxlg !important;}
+  }
+}
+
+@mixin padding-top-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} { padding-top: $sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} { padding-top: $sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) {padding-top: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) {padding-top: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} { padding-top: $md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} { padding-top: $md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) { padding-top: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) { padding-top: $md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} { padding-top: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} { padding-top: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) { padding-top: $lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} { padding-top: $lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} { padding-top: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} { padding-top: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} { padding-top: $xxlg;}
+  }
+}
+
+@mixin margin-left-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} { margin-left: $sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} { margin-left: $sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) {margin-left: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) {margin-left: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} { margin-left: $md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} { margin-left: $md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) { margin-left: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) { margin-left: $md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} { margin-left: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} { margin-left: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) { margin-left: $lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} { margin-left: $lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} { margin-left: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} { margin-left: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} { margin-left: $xxlg;}
+  }
+}
+
+@mixin padding-left-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} { padding-left: $sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} { padding-left: $sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) {padding-left: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) {padding-left: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} { padding-left: $md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} { padding-left: $md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) { padding-left: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) { padding-left: $md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} { padding-left: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} { padding-left: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) { padding-left: $lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} { padding-left: $lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} { padding-left: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} { padding-left: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} { padding-left: $xxlg;}
+  }
+}
+@mixin max-width-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} { max-width: $sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} { max-width: $sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) { max-width: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) { max-width: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} { max-width: $md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} { max-width: $md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) { max-width: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) { max-width: $md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} { max-width: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} { max-width: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) { max-width: $lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} { max-width: $lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} { max-width: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} { max-width: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} { max-width: $xxlg;}
+  }
+}
+
+@mixin top-init($sm:null, $sm-up:null, $sm-l:null, $sm-l-up:null, $md:null, $md-up:null, $md-l:null, $md-l-up:null, $lg:null, $lg-up:null, $lg-l:null, $lg-l-up:null, $xlg:null, $xlg-up:null, $xxlg:null) {
+  @if $sm{
+    @media #{$small-only} { top: $sm;}
+  }
+  @if $sm-up{
+    @media #{$small-up} { top: $sm-up;}
+  }
+  @if $sm-l{
+    @media #{$small-only} and (orientation: landscape) { top: $sm-l;}
+  }
+  @if $sm-l-up{
+    @media #{$small-up} and (orientation: landscape) { top: $sm-l-up;}
+  }
+  @if $md{
+    @media #{$medium-only} { top: $md;}
+  }
+  @if $md-up{
+    @media #{$medium-up} { top: $md-up;}
+  }
+  @if $md-l{
+    @media #{$medium-only}  and (orientation: landscape) { top: $md-l;}
+  }
+  @if $md-l-up{
+    @media #{$medium-up}  and (orientation: landscape) { top: $md-l-up;}
+  }
+  @if $lg{
+    @media #{$large-only} { top: $lg;}
+  }
+  @if $lg-up{
+    @media #{$large-up} { top: $lg-up;}
+  }
+  @if $lg-l{
+    @media #{$large-only} and (orientation: landscape) { top: $lg-l;}
+  }
+  @if $lg-l-up{
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} { top: $lg-l-up;}
+  }
+  @if $xlg{
+    @media #{$xlarge-only} { top: $xlg;}
+  }
+  @if $xlg-up{
+    @media #{$xlarge-up} { top: $xlg-up;}
+  }
+  @if $xxlg{
+    @media #{$xxlarge-only} { top: $xxlg;}
+  }
+}

@@ -1,0 +1,140 @@
+content-container.no-intro{
+    @include padding-top-init(set($topbar-height, sm),set($topbar-height, md), set($topbar-height, md-l), set($topbar-height, lg), set($topbar-height, lg-l), set($topbar-height, xlg), set($topbar-height, xxlg));
+}
+
+.accordion-section{
+
+    @include grid-init(60, 60, 60, 60, 60, 60, 60, left);
+    &.active{
+        @media #{$small-only}, #{$medium-only}, #{$large-only} and (orientation:landscape) {
+            dd.accordion-navigation{
+                display: none;
+                &.active{
+                    display: block;
+                }
+            }
+        }
+    }
+    .content.active{
+        // @include gradient($startColor: #2575B5,$endColor: #114779);
+    }
+    dd.accordion-navigation{
+        @include grid-init(60, 60, 60, 60, 60, 60, 60, left);
+        transition: all 0.3s ease-in-out;
+        &:nth-of-type(odd){
+            a{
+                background-color: $alert-color;
+            }
+        }
+        &:nth-of-type(even){
+            a{
+                background-color: scale-color($alert-color, $lightness: -12.5%);
+              }
+        }
+        @media #{$xlarge-up}{
+          &:nth-of-type(odd){
+              a{
+                  background-color: transparent;
+              }
+          }
+          &:nth-of-type(even){
+              a{
+                  background-color: transparent;
+                }
+          }
+        }
+        a{
+            transition: 0.3s background ease-in-out;
+            position: relative;
+            font-size: 1em;
+            @media #{$xlarge-up} {
+                accordion-icon.chevron{
+                    display: none;
+                }
+            }
+            &.active{
+                accordion-icon.chevron{
+
+                  span{
+                    width: 65%;
+                      &:nth-child(1) {
+                          left: 0;
+                          transform: rotate(-135deg);
+                      }
+                      &:nth-child(2) {
+                          transform: rotate(135deg);
+                      }
+                  }
+
+                  @media #{$xlarge-up}{
+                          display: none;
+                  }
+
+                }
+            }
+
+        }
+        accordion-icon.chevron {
+            width: 5vh;
+            height: 5vh;
+            margin: 0 auto;
+            box-sizing: border-box;
+            display: inline-block;
+            position: relative;
+            float: right;
+            transform: rotate(0deg);
+            transition: .5s ease-in-out;
+            cursor: pointer;
+
+            @media #{$large-up} {
+                width: 3vh;
+                height: 3vh;
+            }
+            span {
+                position: absolute;
+                top: 50%;
+                height: 15%;
+                width: 50%;
+                background: $primary-color;
+                border-radius: 1vh;
+                opacity: 1;
+                left: 0;
+                transform: rotate(0deg);
+                transition: .25s ease-in-out;
+
+                &:nth-child(1) {
+                    transform-origin: 50% 50%;
+                    transform: rotate(-135deg) ;
+                    left: -1.25vh;
+                    @media #{$large-up} {
+                        left: -0.9vh;
+                    }
+                    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+                        left: -0.75vh;
+                    }
+                }
+                &:nth-child(2) {
+                    transform-origin: 50% 50%;
+                    transform: rotate(135deg);
+                }
+            }
+        }
+    }
+}
+
+sidebar{
+    @include grid-init(0, 0, 0, 0, 20, 20, 20, $floats:left);
+    @include height-init(0, 0, 0, 0, 25vh, 25vh, 25vh);
+    display: none;
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+        display: inline-block;
+    }
+    title{
+        @include font-size-init(1.25em, 1.25em, 1.25em, 2em, 1.75em, 2em, 2em);
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        padding: 1vh 0;
+
+    }
+}

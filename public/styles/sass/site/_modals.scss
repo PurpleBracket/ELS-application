@@ -1,0 +1,197 @@
+.modal-content {
+    @include gradient($startColor: #2575B5,$endColor: #114779);
+}
+
+#churchModal{
+  width: 100%;
+  height: 100%;
+    .modal-dialog{
+        @include width-init($sm-up: 100vw, $lg-up: 85vw, $xlg: 70vw, $xxlg: 57.5vw);
+        border-top: 4px scale-color($success-color, $lightness: -12.5%) solid;
+        margin: 0 auto;
+        margin-top: 10vh;
+    }
+    .modal-title{
+        @extend %title;
+        color: $secondary-color;
+    }
+    .modal-body{
+        hero-container{
+            @include height-init($sm-up: 35vh, $lg-up: 45vh);
+            width: 100%;
+            display: block;
+            overflow: hidden;
+        }
+        img.church-hero{
+            min-width: 100%;
+            max-width: 200%;
+            width: auto;
+            min-height: 100%;
+
+        }
+        church-history, church-about{
+            @include grid-init($sm-up: 60, $lg-l: 60, $xlg-up: 35);
+            // @include height-init($sm-up: 54vh !important, $lg-up: 36vh !important, $xlg-up: 54vh !important);
+            // @include gradient($startColor: rgba(white, 0), $endColor: rgba(white, 0.05));
+            float: left;
+            p{
+              @extend %paragraph-1;
+              overflow: auto;
+              float: left;
+              padding: 2vh 2vw 0;
+              color: white;
+              span.title{
+                @extend %title;
+                line-height: 1.3;
+                display: block;
+                text-transform: uppercase;
+                color: $secondary-color;
+                  span.secondary{
+                    @extend %paragraph-1;
+                    text-transform: capitalize;
+                    display: block;
+                    color: $alert-color;
+                  }
+              }
+            }
+        }
+        service-times{
+            @include grid-init($sm-up: 60, $lg-l: 60, $xlg-up: 25);
+            margin-top: 2vh;
+            // @include height-init($sm-up: 54vh !important, $lg-up: 36vh !important, $xlg-up: 54vh !important);
+            event{
+                @include width-init($sm-up: 100%, $lg-l: 33%, $xlg-up: 100%);
+                float: left;
+                padding: 0;
+                background: rgba(white, 0.05);
+                &:nth-of-type(even){
+                    background: rgba(white, 0.1);
+                }
+                // &:last-of-type{
+                //     @include margin-left-init($lg: 25%, $lg-l: 0);
+                // }
+                &:hover{
+                  cursor: inherit;
+                  background: rgba(white, 0.05);
+                  &:nth-of-type(even){
+                      background: rgba(white, 0.1);
+                  }
+                }
+                h4, p{
+                  width: 100%;
+                  text-align: center;
+                  @media #{$xlarge-up} , #{$large-only} and (orientation: portrait){
+                      text-align: left;
+                  }
+                }
+                event-date{
+                  @include grid-init($sm-up: 60, $lg: 20, $lg-l: 60, $xlg-up: 22);
+                  @include height-init($sm-up: 12vh, $lg-up: 16vh, $lg-l: 10vh, $xlg-up: 22vh);
+                  padding: 3vh 0;
+                  box-sizing: padding-box;
+                  margin: 0;
+                  // background: rgba(white, 0.05);
+                }
+                time{
+                    font-size: 1em;
+                    @include height-lineHeight-init($sm-up: 6vh, $lg-up: 10vh, $lg-l: 4vh, $xlg-up: 16vh);
+                }
+                event-description{
+                    @include grid-init($sm-up: 60, $lg: 40, $lg-l: 60, $xlg-up: 38);
+                    @include height-init($sm-up: 20vh, $lg-up: 16vh, $lg-l: 22vh, $xlg-up: 22vh);
+                    padding: 3vh 2vw;
+                    box-sizing: padding-box;
+                    margin: 0;
+                    event-description-content{
+                      padding: 0 2vh;
+                      @include height-init($sm-up: 20vh, $lg-up: 10vh, $lg-l: 18vh, $xlg-up: 16vh);
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+#callModal, #contactModal, #locationModal{
+    width: 100%;
+    height: 100%;
+    .modal-dialog{
+        @include width-init($sm-up: 85vw, $lg-up: 55vw, $xlg-up: 25vw);
+        @extend %absolute-center-item;
+        border-top: 4px scale-color($success-color, $lightness: -12.5%) solid;
+        margin: 0;
+    }
+    &#locationModal{
+      .modal-dialog{
+          @include width-init($sm-up: 85vw, $lg-up: 75vw, $xlg-up: 35vw);
+          img.static-map{
+              margin: 0 auto;
+              position: relative;
+              min-width: 100%;
+              height: auto;
+          }
+      }
+    }
+    .modal-header{
+        @include height-lineHeight-init($sm-up: 6vh, $md-l: 14vh);
+        @extend %no-space;
+        h4{
+            @extend %header-2;
+            @include height-lineHeight-init($sm-up: 6vh, $md-l: 14vh);
+            color: $secondary-color;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+    .modal-body{
+        h5.number{
+          @extend %header-2;
+           color: white;
+           width: 100%;
+           text-align: center;
+           span{
+              color: $secondary-color;
+              margin-left: 1em;
+           }
+        }
+    }
+    .modal-footer{
+      @extend %no-space;
+        a{
+            @include width-init($sm-up: 45%, $lg-up: 20%, $lg-l-up: 30%);
+            @include height-lineHeight-init($sm-up: 6vh, $lg-up: 4vh);
+            font-size: 0.85em;
+            float: right;
+            text-align: center;
+            color: white;
+            margin-bottom: 1vh;
+            background: rgba($secondary-color, 0.85);
+            color: $primary-color;
+            transition: background-color 0.35s ease-in-out;
+            &:hover{
+                background: rgba($secondary-color,1);
+            }
+        }
+    }
+}
+
+.ghost-center {
+  position: relative;
+}
+.ghost-center::before {
+  content: " ";
+  display: inline-block;
+  height: 100%;
+  width: 1%;
+  vertical-align: middle;
+}
+.ghost-center p {
+  display: inline-block;
+  vertical-align: middle;
+  width: 190px;
+  margin: 0;
+  padding: 20px;
+  background: black;
+  color: white;
+}

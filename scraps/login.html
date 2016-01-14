@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Epiphany Lutharen School</title>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link href="../public/styles/css/els-style.css" rel="stylesheet">
+
+	<script src="../public/bower_components/modernizr/modernizr.js"></script>
+
+	<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" />
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" />
+		<![endif]-->
+
+</head>
+
+<body>
+	<wrapper id="body">
+	<div id="gradient-overlay"></div>
+	<nav id="topbar">
+
+		<logo-img>
+			<a href="index2.html">
+				<img id="logo" src="../public/images/logo.svg" alt="" />
+			</a>
+		</logo-img>
+
+		<logo-name>
+			<a href="index2.html">Epiphany Lutharen School<br>
+									<span>Meow Meow Meow Meow </span>
+			</a>
+		</logo-name>
+
+		<nav-bar>
+			<nav-item id="hamburger">
+				<a class="nav-icon">
+					<div id="nav-icon">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</a>
+			</nav-item>
+			<nav-item id="search">
+				<a class="search-icon"><span class="icon-search" aria-hidden="true"></span></a>
+				<form>
+					<label>
+						<input class="search-input" type="text" placeholder="What are you looking for?" />
+					</label>
+					<a href="#" class="post-button"><span class="icon-right" aria-hidden="true"></a>
+				</form>
+			</nav-item>
+			<nav-item>
+				<a href="" class="icon">
+					<span class="icon-fb" aria-hidden="true"></span>
+				</a>
+			</nav-item>
+			<nav-item data-toggle="modal" data-target="#locationModal">
+				<a class="icon"><span class="icon-location" aria-hidden="true"></span></a>
+			</nav-item>
+			<nav-item data-toggle="modal" data-target="#contactModal">
+				<a class="icon"><span class="icon-message" aria-hidden="true"></span></a>
+			</nav-item>
+			<nav-item data-toggle="modal" data-target="#callModal">
+				<a class="icon"><span class="icon-call" aria-hidden="true"></span></a>
+			</nav-item>
+		</nav-bar>
+
+		<announcments-container>
+
+			<div id="announcments-carousel">
+				<div class="modern-ticker">
+					<div class="mt-body">
+						<div class="mt-news">
+							<ul>
+								<li><a href="#" target="_self">News 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1 news 1</a>
+								</li>
+								<li><a href="#" target="_self">News 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2 news 2</a>
+								</li>
+								<li><a href="#" target="_self">News 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3 news 3</a>
+								</li>
+								<li><a href="#" target="_self">News 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4 news 4</a>
+								</li>
+								<li><a href="#" target="_self">News 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5 news 5</a>
+								</li>
+							</ul>
+						</div>
+						<div class="mt-controls">
+							<div class="mt-prev"><span class="icon-left" aria-hidden="true"></span>
+							</div>
+							<div class="mt-play"><span class="icon-pause" aria-hidden="true"></span>
+							</div>
+							<div class="mt-next"><span class="icon-right" aria-hidden="true"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<sbar>
+				<a class="searchbar-icon">
+					<span class="icon-search" aria-hidden="true"></span>Search
+				</a>
+				<form>
+					<label>
+						<input class="search-input" type="text" placeholder="What are you looking for?" />
+					</label>
+					<a href="#" class="post-button"><span class="icon-right" aria-hidden="true"></a>
+				</form>
+			</sbar>
+		</announcments-container>
+
+		<off-canvas-nav id="off-canvas-nav" class="hidden collapsed">
+			<nav-item>
+				<a class="nav-link" href="prospectives2.html">Prospectives</a>
+			</nav-item>
+			<nav-item>
+				<a class="nav-link" href="current2.html">Current</a>
+			</nav-item>
+			<nav-item>
+				<a class="nav-link" href="alumni2.html">Alumni</a>
+			</nav-item>
+			<nav-item>
+				<a class="nav-link active" href="about2.html">About</a>
+			</nav-item>
+			<nav-item>
+				<a class="nav-link" data-toggle="modal" data-target="#churchModal">Church</a>
+			</nav-item>
+		</off-canvas-nav>
+	</nav>
+
+		<container>
+			<div id="intro-slider" class="carousel slide">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#intro-slider" data-slide-to="0" class="active"></li>
+					<li data-target="#intro-slider" data-slide-to="1"></li>
+					<li data-target="#intro-slider" data-slide-to="2"></li>
+					<li data-target="#intro-slider" data-slide-to="3"></li>
+					<li data-target="#intro-slider" data-slide-to="4"></li>
+					<li data-target="#intro-slider" data-slide-to="5"></li>
+				</ol>
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<img src="../public/images/temp.jpg" alt="" />
+					</div>
+					<div class="item">
+						<img src="../public/images/temp.jpg" alt="" />
+					</div>
+					<div class="item">
+						<img src="../public/images/temp.jpg" alt="" />
+					</div>
+					<div class="item">
+						<img src="../public/images/temp.jpg" alt="" />
+					</div>
+					<div class="item">
+						<img src="../public/images/temp.jpg" alt="" />
+					</div>
+					<div class="item">
+						<img src="../public/images/temp.jpg" alt="" />
+					</div>
+				</div>
+				<!-- Controls -->
+				<a class="left carousel-control" href="#intro-slider" role="button" data-slide="prev"> <span class="icon-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+				<a class="right carousel-control" href="#intro-slider" role="button" data-slide="next"> <span class="icon-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+			</div>
+			<content-container data-equalizer>
+				<dl class="accordion accordion-section" id="login-section" data-accordion>
+						<dd class="accordion-navigation" id="login-block">
+							<a href="#login" class="section acc-nav">Log in
+									<accordion-icon class="chevron down">
+											<span></span>
+											<span></span>
+									</accordion-icon>
+							</a>
+							<div id="login" class="content section">
+								<container-row>
+									<form>
+										<label for="email" class="form-label">Email</label>
+										<input class="form-input" type="email" id="email" placeholder="Use your school email">
+
+										<label for="password" class="form-label">Password</label>
+										<input class="form-input" type="password" id="password" placeholder="Password">
+										<a href="#" class="submit-button">Log in</a>
+									</form>
+								</container-row>
+							</div>
+						</dd>
+				</dl>
+			</content-container>
+			<legal-tag>Copyright (c) Epiphany Lutheran School<br>All Rights Reserved</legal-tag>
+		</container>
+
+		<!-- Modals -->
+		<div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog modal-lg" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="myModalLabel">find us</h4>
+						<a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+		      </div>
+		      <div class="modal-body">
+						<img src="http://placehold.it/500x350?text=map" alt="" />
+		      </div>
+		      <div class="modal-footer">
+		        <a data-dismiss="modal">Close</a>
+		        <a>Find your way here</a>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel">contact us</h4>
+						<a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+					</div>
+					<div class="modal-body">
+							<form>
+								<!-- <label id="teacher" class="">Teacher
+										<select>
+												<option value="none">Select teacher</option>
+												<option value="husker">Husker</option>
+												<option value="starbuck">Starbuck</option>
+												<option value="hotdog">Hot Dog</option>
+												<option value="apollo">Apollo</option>
+										</select>
+								</label> -->
+
+								<label for="name" class="form-label">Name</label>
+								<input class="form-input"type="text" id="name" placeholder="Your Name">
+
+								<label for="phone" class="form-label">Phone</label>
+								<input class="form-input"type="text" id="phone" placeholder="Can we call you?">
+
+								<label for="email" class="form-label">Email</label>
+								<input class="form-input"type="text" id="email" placeholder="How can we reach you?">
+
+								<label for="subject" class="form-label">Subject</label>
+								<input class="form-input"type="text" id="subject" placeholder="How can we help?">
+
+								<label for="message" class="form-label">
+										<textarea id="message" placeholder="Include all relevant information" rows="4"></textarea>
+								</label>
+
+
+							<a href="#" class="button secondary small send-button">Send Message</a>
+							</form>
+					</div>
+					<div class="modal-footer">
+						<a data-dismiss="modal">Close</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="callModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel">call us</h4>
+						<a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+					</div>
+					<div class="modal-body">
+							<h5>Admin</h5>
+							<p>000-000-0000</p>
+
+							<h5>Church</h5>
+							<p>000-000-0000</p>
+
+							<h5>Bla Bla</h5>
+							<p>000-000-0000</p>
+					</div>
+					<div class="modal-footer">
+						<a data-dismiss="modal">Close</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="comments-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<message-container>
+								<container-row>
+										<title>I want ice cream, who's in?</title>
+										<post-author>Name Name</post-author>
+										<post-date>october <span>8th</span></post-date>
+								</container-row>
+								<container-row>
+										<post-content>
+												<p>
+													Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+												</p>
+										</post-content>
+								</container-row>
+						</message-container>
+
+						<comments>
+							<message-container class="comment">
+									<container-row>
+											<post-author>Name Name</post-author>
+											<post-date>october <span>8th</span></post-date>
+									</container-row>
+									<container-row>
+											<post-content>
+													<p>
+														Eiusmod tempor incididunt ut labore et dolore magna aliqua.
+													</p>
+											</post-content>
+									</container-row>
+							</message-container>
+
+							<message-container class="comment">
+									<container-row>
+											<post-author>Name Name</post-author>
+											<post-date>october <span>8th</span></post-date>
+									</container-row>
+									<container-row>
+											<post-content>
+													<p>
+														Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+													</p>
+											</post-content>
+									</container-row>
+							</message-container>
+
+							<message-container class="comment">
+									<container-row>
+											<post-author>Name Name</post-author>
+											<post-date>october <span>8th</span></post-date>
+									</container-row>
+									<container-row>
+											<post-content>
+													<p>
+														Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+													</p>
+											</post-content>
+									</container-row>
+							</message-container>
+
+							<message-container class="comment">
+									<container-row>
+											<post-author>Name Name</post-author>
+											<post-date>october <span>8th</span></post-date>
+									</container-row>
+									<container-row>
+											<post-content>
+													<p>
+														Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+													</p>
+											</post-content>
+									</container-row>
+							</message-container>
+
+							<message-container class="comment">
+									<container-row>
+											<post-author>Name Name</post-author>
+											<post-date>october <span>8th</span></post-date>
+									</container-row>
+									<container-row>
+											<post-content>
+													<p>
+														Lorem ipsum dolor sit amet dolore magna aliqua.
+													</p>
+											</post-content>
+									</container-row>
+							</message-container>
+						</comments>
+					</div>
+					<div class="modal-footer">
+						<a data-dismiss="modal">Close</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</wrapper>
+
+	<script src="../public/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../public/bower_components/foundation/js/foundation.min.js"></script>
+	<script src="../public/bootstrap/bootstrap-3.3.4.min.js"></script>
+
+
+	<script src="../public/dist/js/app.min.js"></script>
+
+</body>
+
+</html>

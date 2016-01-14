@@ -1,0 +1,180 @@
+@charset "utf-8";
+
+/* Ticker */
+.modern-ticker {
+	width: 100%;
+	height: 100%;
+	line-height: 1;
+	font-size: 16px;
+	overflow: hidden;
+}
+.modern-ticker a {
+	@include height-lineHeight-init($sm-up: set($announcments-height, sm), $md-l: set($announcments-height, md-l), $lg-up: set($announcments-height, lg), $lg-l-up: set($announcments-height, lg-l));
+	text-decoration: none;
+	white-space: nowrap;
+}
+.modern-ticker ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	li{
+		list-style: none;
+	}
+}
+.mt-round {
+	border-radius: 7px;
+}
+
+	/* Body */
+	.mt-body {
+		margin: 0;
+		position: relative;
+	}
+
+		/* Label */
+		.mt-label {
+			margin-right: 2px;
+			// padding: 0 8px 0 12px;
+			position: absolute;
+			left: 0;
+		}
+		.mt-round .mt-label {
+			border-radius: 5px 0 0 5px;
+		}
+
+		/* News */
+		.mt-news {
+			overflow: hidden;
+			position: absolute;
+		}
+		.mt-scroll .mt-news {
+			background-color: transparent;
+		}
+		.mt-news ul {
+			/* Preload */
+			background-repeat: no-repeat;
+			background-position: -1000px;
+		}
+		.mt-news li {
+			float: left;
+		}
+		.mt-round .mt-news:first-child, .mt-round .mt-news:first-child a {
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+		}
+		.mt-round .mt-news:last-child, .mt-round .mt-news:last-child a {
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+		.mt-news a {
+			@include font-size-init($sm-up: 0.85em, $lg-up: 1em, $xlg-up: 1em);
+			// padding: 0 10px 0 20px;
+			margin-right: 10px;
+			padding-left: 5px;
+			// background-repeat: no-repeat;
+			// background-position: 7px center;
+			display: block;
+			white-space: nowrap;
+		}
+		.mt-scroll.mt-round .mt-news a {
+			border-radius: 0;
+		}
+		.mt-hide {
+			display: none;
+		}
+
+		/* Controls */
+		.mt-controls {
+			margin-left: 2px;
+			position: absolute;
+			right: 0;
+
+			/* Preload */
+			background-repeat: no-repeat;
+			background-position: -1000px;
+		}
+		.mt-play, .mt-prev, .mt-next {
+			@include height-lineHeight-init($sm-up: set($announcments-height, sm), $md-l: set($announcments-height, md-l), $lg-up: set($announcments-height, lg), $lg-l-up: set($announcments-height, lg-l));
+			width: 30px;
+			background-repeat: no-repeat;
+			background-position: center;
+			float: left;
+			cursor: pointer;
+			span{
+					font-size: 1em;
+			}
+		}
+		.mt-round .mt-next {
+			border-radius: 0 5px 5px 0;
+		}
+		@charset "utf-8";
+
+		/* Ticker */
+		.modern-ticker {
+			background-color: $secondary-color;
+		}
+
+			/* Label */
+			.mt-label {
+				background-color: #0099ff;
+			}
+
+			/* News */
+			.mt-news {
+				background-color: transparent;
+				transition: background-color 0.35s ease-in-out;
+			}
+			.mt-preloader {
+				background: url("../../images/preloader.gif") no-repeat center;
+			}
+			.mt-news ul {
+				/* Preload */
+				background-image: url("../../images/bullet-over.png");
+			}
+			.mt-news a {
+				color: $success-color;
+				// background-image: url("../../images/bullet.png");
+			}
+			.mt-news a:hover {
+				color: $success-color;
+				background-color: scale-color($secondary-color, $lightness: -12.5%);
+
+				// border-color: #ff2200;
+				// background-image: url("../../images/bullet-over.png");
+			}
+			.mt-news a:active {
+				background-color: $success-color;
+			}
+
+			/* Controls */
+			.mt-controls {
+				/* Preload */
+				background-image: url("../../images/pause.png");
+			}
+			.mt-prev, .mt-next, .mt-play, .mt-pause {
+				background-color: $secondary-color;
+				// border-bottom: 4px scale-color($secondary-color, $lightness: -12.5%) solid;
+				text-align: center;
+				color: $primary-color;
+				transition: background 0.3s ease-in-out;
+			}
+			// .mt-prev {
+			// 	background-image: url("../../images/arrow-prev.png");
+			// }
+			// .mt-next {
+			// 	background-image: url("../../images/arrow-next.png");
+			// }
+			// .mt-play {
+			// 	background-image: url("../../images/play.png");
+			// }
+			// .mt-pause {
+			// 	background-image: url("../../images/pause.png");
+			// }
+			.mt-play:hover, .mt-prev:hover, .mt-next:hover {
+					background-color: scale-color($secondary-color, $lightness: -12.5%);
+					color: $success-color;
+			}
+			.mt-play:active, .mt-prev:active, .mt-next:active {
+					background-color: $alert-color;
+					color: $success-color;
+			}

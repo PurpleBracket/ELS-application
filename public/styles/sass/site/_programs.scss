@@ -1,0 +1,36 @@
+program{
+    @include grid-init(50, 50, 50, 50, 16, 18, 18, left);
+    @include grid-column($offset: 5);
+    @include panel();
+    padding: 2vh 0 !important;
+    border: 0;
+    // background: rgba($alert-color, 0.35);
+    title{
+        display: block;
+        width: 100%;
+        color: $primary-color;
+        // background-color: $alert-color;
+        height: 8vh;
+        line-height: 6vh;
+        padding: 1vh 2vh;
+        text-align: center;
+        font-size: 1.3em;
+    }
+    description{
+        display: block;
+        width: 100%;
+        padding: 2vh;
+    }
+    @media #{$large-up} and (orientation: landscape) {
+        @include grid-column($offset: 4);
+        &:nth-of-type(3n+1){
+            @include grid-column($offset: 2);
+        }
+    }
+    @media #{$xlarge-up} {
+        @include grid-column($offset: 2);
+        &:nth-of-type(3n+1){
+            @include grid-column($offset: 1);
+        }
+    }
+}

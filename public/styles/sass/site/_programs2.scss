@@ -1,0 +1,33 @@
+program{
+    @include grid-init($sm-up: 54, $lg-l: 26, $xlg-up: 18);
+    @include grid-column($offset: 3);
+    @include gradient($startColor: rgba(white, 0), $endColor: rgba(white, 0.05));
+    padding: 2vh 2vh !important;
+    margin-bottom: 3vh;
+    border: 0;
+    @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape){
+        margin-bottom: 6vh;
+    }
+    title{
+        @extend %title;
+        color: $secondary-color;
+    }
+    description{
+        display: block;
+        width: 100%;
+        padding: 2vh;
+        color: #ffffff;
+    }
+    @media #{$large-up} and (orientation: landscape) {
+        @include grid-column($offset: 4);
+        &:nth-of-type(2n+1){
+            @include grid-column($offset: 2);
+        }
+    }
+    @media #{$xlarge-up} {
+        @include grid-column($offset: 2);
+        &:nth-of-type(3n+1){
+            @include grid-column($offset: 1);
+        }
+    }
+}

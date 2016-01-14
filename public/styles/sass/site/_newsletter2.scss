@@ -1,0 +1,106 @@
+#newsletter-slider{
+    @extend %full-block;
+    @extend %no-space;
+    @include responsive-init($prop: height, $sm-up: 70vh, $xlg: 80vh);
+    display: inline-block;
+    padding: 0 2vw;
+    newsletter-container{
+      @include grid-init($sm-up: 50, $lg-l: 27, $xlg-up: 27);
+      @include grid-column($offset: 5);
+      @include height-init($sm-up: 61vh, $lg-up: 28.5vh, $xlg: 34vh);
+      @include gradient($startColor: rgba(white, 0), $endColor: rgba(white, 0.05));
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      border: 0;
+      title{
+          @extend %title;
+          color: $secondary-color;
+      }
+      p{
+          @extend %paragraph-1;
+          display: block;
+          width: 100%;
+          padding: 2vh;
+          color: #ffffff;
+      }
+      @media #{$large-up} and (orientation: landscape) {
+          @include grid-column($offset: 2);
+          &:nth-of-type(even){
+              @include grid-column($offset: 2);
+          }
+      }
+    }
+    .carousel-inner{
+        @include responsive-init($prop: height, $sm-up: 65vh, $xlg: 70vh);
+        margin-top: 5vh;
+    }
+    .carousel-control{
+        background: $secondary-color;
+        width: 5vh;
+        height: 5vh;
+        position: absolute;
+        top: 0;
+        span{
+            @extend %absolute-center-item;
+            width: 5vh;
+            height: 5vh;
+            line-height: 5vh;
+            font-size: 1.25em;
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .carousel-indicators{
+        margin-bottom: 2px !important;
+        top: 2px !important;
+        li{
+            @media #{$large-only} {
+                &:nth-of-type(even){
+                    display: none;
+                }
+            }
+            @media #{$xlarge-up} {
+                display: none;
+                &:nth-of-type(3n+1) {
+                    display: none;
+                }
+                &:nth-of-type(4n+5), &:first-of-type {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+#current-newsletter{
+    @include grid-init($sm-up: 60, $xlg: 40, $xxlg: 45);
+    newsletter-container{
+        @extend %halfSm-fullLg-block;
+    }
+}
+.carousel-fade {
+    .carousel-inner {
+        .item {
+            transition: opacity 0.25s ease-in-out;
+        }
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    .carousel-control {
+        z-index: 2;
+    }
+}

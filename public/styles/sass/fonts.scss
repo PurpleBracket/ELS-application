@@ -1,0 +1,55 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../../fonts/icomoon.eot?1fcp8r');
+	src:url('../../fonts/icomoon.eot?1fcp8r#iefix') format('embedded-opentype'),
+		url('../../fonts/icomoon.ttf?1fcp8r') format('truetype'),
+		url('../../fonts/icomoon.woff?1fcp8r') format('woff'),
+		url('../../fonts/icomoon.svg?1fcp8r#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-call:before {
+	content: "\e03f";
+}
+.icon-location:before {
+	content: "\e052";
+}
+.icon-message:before {
+	content: "\e07d";
+}
+.icon-search:before {
+	content: "\e2ca";
+}
+.icon-right:before {
+	content: "\e801";
+}
+.icon-left:before {
+	content: "\e802";
+}
+.icon-pause:before {
+	content: "\e807";
+}
+.icon-fb:before {
+	content: "\e809";
+}
+.icon-play:before {
+	content: "\e80a";
+}

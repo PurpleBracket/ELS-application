@@ -1,0 +1,126 @@
+events-container, #events-calender{
+    @include grid-row();
+    max-width: 100vw;
+
+    section-title{
+        width: 100%;
+        @extend %no-space;
+        display: inline-block;
+        position: relative;
+        float: left;
+        background: rgba($primary-color, 0.8);
+        height: 100%;
+        h5{
+            @include height-init(8vh, 8vh, 8vh, 8vh, 8vh, 8vh, 8vh);
+            // @include lineHeight-init(8vh, 8vh, 8vh, 8vh, 5.5vw, 5.5vw, 5.5vw);
+            @include font-size-init(1em, 1em, 1em, 1.5em, 1.25em, 1.5em, 1.5em);
+            @extend %no-space;
+            transform-origin: left top;
+            text-align: center;
+            height: 100%;
+            color: $secondary-color;
+            // @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+            //   transform: rotate(-90deg);
+            //   transform-origin: 50% 50% 0;
+            // }
+        }
+    }
+    monthly-calendar{
+        @include grid-init(60, 60, 60, 30, 26, 26, 26, left);
+        @extend %no-space;
+        background: rgba($primary-color, 0.8);
+        padding-bottom: 2vh !important;
+        @media #{$large-up} {
+            padding-bottom: 0 !important;
+        }
+        labels{
+            @include grid-row();
+            day-label{
+                display: inline-block;
+                float: left;
+                width: 14.2857%;
+                @include height-lineHeight-init(6vh, 6vh, 6vh, 4vh, 5vh, 5vh, 5vh);
+                @extend %no-space;
+                background: rgba($secondary-color, 0.8);
+                text-align: center;
+            }
+        }
+        calendar{
+            @include grid-row();
+            week{
+                @include grid-row();
+                day{
+                    display: inline-block;
+                    float: left;
+                    width: 14.2857%;
+                    @include height-lineHeight-init(6vh, 6vh, 6vh, 4vh, 5vh, 5vh, 5vh);
+                    @extend %no-space;
+                    background: rgba($alert-color, 0.9);
+                    text-align: center;
+                    &.inactive{
+                        opacity: 0.5;
+                    }
+                }
+            }
+        }
+    }
+    events-list{
+        @include grid-init(60, 60, 60, 30, 30, 30, 30, left);
+        @include height-init(35vh, 35vh, 35vh, 28vh, 35vh, 35vh, 35vh);
+        background: rgba($primary-color, 0.4);
+        padding: 2.5vh;
+
+        @media #{$large-only} and (orientation: portrait) {
+            padding: 0;
+        }
+        event{
+            @include grid-row();
+            event-date{
+                @include grid-init(10, 10, 10, 10, 10, 10, 10, left);
+                @include height-init(10vh, 10vh, 10vh, 9vh, 10vh, 10vh, 10vh);
+                day{
+                    display: block;
+                    width: 100%;
+                    height: 6vh;
+                    line-height: 6vh;
+                    text-align: center;
+                }
+                date{
+                    display: block;
+                    width: 100%;
+                    height: 4vh;
+                    line-height: 4vh;
+                    text-align: center;
+                }
+            }
+            event-description{
+                @include grid-init(50, 50, 50, 50, 50, 50, 50, left);
+                @include height-init(10vh, 10vh, 10vh, 9vh, 10vh, 10vh, 10vh);
+                h4{
+                    @extend %no-space;
+                    display: block;
+                    width: 100%;
+                    text-align: left;
+                    height: 6vh;
+                    line-height: 6vh;
+                }
+                p{
+                    @extend %no-space;
+                    display: block;
+                    width: 100%;
+                    text-align: left;
+                    height: 4vh;
+                    line-height: 4vh;
+                }
+            }
+        }
+    }
+}
+
+#current-events{
+    @include grid-init(60, 60, 60, 60, 60, 15, 15, left);
+
+    monthly-calendar, events-list{
+        @include grid-init(60, 60, 60, 60, 60, 60, 60, left);
+    }
+}

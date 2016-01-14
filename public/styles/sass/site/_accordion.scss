@@ -1,0 +1,418 @@
+.accordion-section{
+    @extend %full-block;
+    @extend %no-space;
+    z-index: 99999;
+    transition: margin 0.35s ease-in-out;
+    &.active{
+        @media #{$small-only}, #{$medium-only} {
+            >dd.accordion-navigation{
+                display: none;
+                &.active{
+                    display: inline-block;
+                }
+            }
+        }
+        @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape){
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        @media #{$large-up} {
+            margin-top: 5vh !important;
+            dd.accordion-navigation{
+                margin-bottom: 5vh !important;
+                &:last-of-type{
+                    margin-bottom: 0 !important;
+                }
+            }
+        }
+    }
+    .content.section.active{
+        @include grid-row;
+        max-width: 100%;
+        padding: 0 0;
+        height: auto;
+        display: block;
+        @include padding-top-init($sm: 8vh, $md: 8vh, $md-l: 18vh);
+    }
+    >dd.accordion-navigation{
+        @include gradient($startColor: #2575B5, $endColor: #114779);
+          @extend %full-block;
+          @extend %no-space;
+          display: inline-block;
+          transition: all 0.3s ease-in-out;
+          &:nth-of-type(odd){
+              a.acc-nav{
+                  background-color: $secondary-color;
+                  border-bottom: 4px scale-color($secondary-color, $lightness: -12.5%) solid;
+              }
+          }
+          &:nth-of-type(even){
+              a.acc-nav{
+                  background-color: scale-color($secondary-color, $lightness: 7%);
+                  border-bottom: 4px scale-color($secondary-color, $lightness: -12.5%) solid;
+                }
+          }
+          a.acc-nav{
+              @extend %header-2;
+              @include height-lineHeight-init($sm-up: 8vh, $sm-l: 15vh, $md-l: 15vh, $lg-up: 6vh);
+              padding-top: 0;
+              padding-bottom: 0;
+              margin-top: 0;
+              margin-bottom: 0;
+              font-weight: 700;
+              text-transform: uppercase;
+              transition: 0.3s background ease-in-out;
+              position: relative;
+              @media #{$large-only} {
+                  text-align: center;
+              }
+              @media #{$large-up} {
+                  accordion-icon.chevron{
+                      display: none;
+                  }
+              }
+              @media #{$xlarge-up} {
+                  padding-left: 2vw;
+              }
+              &.active{
+                @include height-lineHeight-init($sm-up: 8vh, $sm-l: 15vh, $md-l: 15vh, $lg-up: 6vh);
+                padding-top: 0;
+                padding-bottom: 0;
+                margin-top: 0;
+                margin-bottom: 0;
+                @media #{$small-only}, #{$medium-only} {
+                    z-index: 1000;
+                    width: 100%;
+                    text-align: center;
+                    position: fixed;
+                    background: rgba($secondary-color, 0.9);
+                    accordion-icon.chevron{
+                      span{
+                        width: 65%;
+                          &:nth-child(1) {
+                              left: 0;
+                              transform: rotate(-135deg);
+                          }
+                          &:nth-child(2) {
+                              transform: rotate(135deg);
+                          }
+                      }
+                      @media #{$xlarge-up}{
+                          display: none;
+                      }
+                    }
+                }
+                @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape){
+                    width: 92vw;
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+        accordion-icon.chevron {
+            width: 5vh;
+            height: 5vh;
+            margin: 0 auto;
+            margin-top: 1.5vh;
+            box-sizing: border-box;
+            display: inline-block;
+            position: relative;
+            float: right;
+            transform: rotate(0deg);
+            transition: .5s ease-in-out;
+            cursor: pointer;
+            span {
+                position: absolute;
+                top: 50%;
+                height: 15%;
+                width: 50%;
+                background: $primary-color;
+                border-radius: 1vh;
+                opacity: 1;
+                left: 0;
+                transform: rotate(0deg);
+                transition: all .25s ease-in-out;
+                &:nth-child(1) {
+                    transform-origin: 50% 50%;
+                    transform: rotate(-135deg) ;
+                    left: -1.25vh;
+                    @media #{$large-up} {
+                        left: -0.9vh;
+                    }
+                    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+                        left: -0.75vh;
+                    }
+                }
+                &:nth-child(2) {
+                    transform-origin: 50% 50%;
+                    transform: rotate(135deg);
+                }
+            }
+            @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape){
+                width: 8vh;
+                height: 8vh;
+                margin-top: 3.5vh;
+                span{
+                    &:nth-child(1) {
+                        left: -2.5vh;
+                    }
+                }
+            }
+            @media #{$large-up} {
+                width: 3vh;
+                height: 3vh;
+            }
+        }
+    }
+}
+
+#history-block{
+    @include grid-init($sm-up: 60, $xlg-up: 45);
+    content-block{
+      @include grid-init($sm-up: 60, $xlg-up: 30);
+    }
+}
+#location-block{
+    @include grid-init($sm-up: 60, $xlg-up: 15);
+    #location {
+        @include height-init($lg-l: 40vh);
+        height: 100%;
+        max-height: 100%;
+        position: relative;
+    }
+    #map {
+        height: 100%;
+        min-height: 20vh;
+        max-width: 85vw;
+        padding: 0;
+        margin: 0 auto;
+        @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+            height: 100%;
+        }
+    }
+    #address{
+      @include height-lineHeight-init($sm-up: 4vh);
+      @extend %paragraph-1;
+      width: 100%;
+      display: block;
+      position: absolute;
+      bottom: 0;
+      background: $primary-color;
+      color: $alert-color;
+      text-align: center;
+    }
+}
+
+#student-highlight-current--block{
+    @include grid-init($sm-up: 60, $lg-up: 26, $lg-l: 20, $xlg-up: 15);
+    #student-highlight-current{
+        position: relative;
+    }
+    student-highlight{
+        @extend %full-block;
+        @extend %absolute-center-item;
+        margin: 0 !important;
+        padding: 2vh 0;
+        highlight-image-container{
+            @include grid-init($sm-up: 60);
+        }
+        highlight-content-container{
+            @include grid-init($sm-up: 60);
+            @include height-init($sm-up: 10vh);
+        }
+    }
+}
+
+#honor-roll--block{
+    @include grid-init($sm-up: 60, $lg-up: 34, $lg-l: 40, $xlg-up: 45);
+    content-block{
+      @extend %full-block;
+      @include height-init($lg-up: 90%);
+      position: relative;
+      padding: 0 !important;
+    }
+    form{
+      @media #{$large-up} {
+          display: none;
+      }
+    }
+    .nav-tabs{
+      z-index: 500;
+        @media #{$large-up} {
+            display: block;
+            margin: 0;
+        }
+        li{
+            a{
+                font-family: $font-family-serif;
+                color: $secondary-color;
+            }
+            &.active, &:hover{
+                a{
+                  color: $primary-color;
+                }
+            }
+        }
+    }
+    .tab-content{
+      @include margin-top-init($sm-up: 0, $lg-l-up: 6vh );
+      z-index: 100;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .tab-pane.active{
+      display: block;
+      height: auto;
+
+    }
+    .tab-pane > container-row{
+        position: relative;
+        display: block;
+        width: 100%;
+    }
+    .honor-roll--list{
+        @include grid-init($sm-up: 50, $lg-l-up: 18);
+        @include grid-column($offset: 5);
+        @include gradient($startColor: rgba(white, 0), $endColor: rgba(white, 0.05));
+        @media #{$large-up} and (orientation: landscape), #{xlarge-up} {
+            @include grid-column($offset: 2);
+            &:nth-of-type(3n+1){
+                @include grid-column($offset: 1);
+            }
+        }
+        .title{
+            @extend %header-3;
+            color: $secondary-color;
+        }
+        li{
+            @include height-lineHeight-init($sm-up: 5vh);
+            text-align: center;
+
+        }
+    }
+}
+
+#uniforms-block{
+    content-block{
+        @include grid-init($sm-up: 54, $xlg-up: 18);
+        @include grid-column($offset: 3);
+        @include gradient($startColor: rgba(white, 0), $endColor: rgba(white, 0.05));
+        @media #{$large-up}{
+          @include grid-column($offset: 1);
+        }
+
+    }
+}
+#information-block{
+    @include grid-init($sm-up: 60);
+    content-block{
+        @extend %halfSm-fullxLg-block;
+        ul{
+            width: 100%;
+            padding: 2vh 2vh;
+            color: white;
+            list-style: none;
+            margin: 0;
+            li{
+                @include margin-top-init($sm: 2vh, $md: 2vh, $md-l: 2vh);
+                &:first-of-type{
+                  @include margin-top-init($sm: 0, $md: 0, $md-l: 0);
+                }
+            }
+        }
+    }
+}
+
+#information{
+    overflow: hidden;
+}
+
+#information-block{
+    content-block.has-dropdown{
+        height: 50%;
+        display: block;
+        padding: 0 2vh !important;
+        margin: 0 !important;
+    }
+    form{
+      @media #{$large-up} {
+          display: none;
+      }
+    }
+    .nav-tabs{
+      z-index: 500;
+        @media #{$large-up} {
+            display: block;
+            margin: 0;
+        }
+        li{
+            a{
+                font-family: $font-family-serif;
+                color: $secondary-color;
+            }
+            &.active, &:hover{
+                a{
+                  color: $primary-color;
+                }
+            }
+        }
+    }
+    .tab-content{
+      @include margin-top-init($sm-up: 0);
+      // @include max-height-init($sm-up: 50vh, $lg-up: 43vh, $xlg-up: 40vh, $xxlg: 52vh);
+      margin-bottom: 3vh;
+      z-index: 100;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .tab-pane.active{
+      display: block;
+      height: auto;
+    }
+    .tab-pane > container-row{
+        position: relative;
+        display: block;
+        width: 100%;
+    }
+    .honor-roll--list{
+        @include grid-init($sm-up: 50, $lg-l-up: 18);
+        @include grid-column($offset: 5);
+        @include gradient($startColor: rgba(white, 0), $endColor: rgba(white, 0.05));
+        @media #{$large-up} and (orientation: landscape), #{xlarge-up} {
+            @include grid-column($offset: 2);
+            &:nth-of-type(3n+1){
+                @include grid-column($offset: 1);
+            }
+        }
+        .title{
+            @extend %title;
+            color: $secondary-color;
+        }
+        li{
+            @include height-lineHeight-init($sm-up: 5vh);
+            text-align: center;
+
+        }
+    }
+}
+
+#application, #handbook{
+  .tab-pane.active{
+    height: 100%;
+  }
+  #pdf{
+  }
+}
+
+#programs{
+    padding: 2vh 2vw;
+    padding-top: 8vh;
+}
+
+#programs, #message-board{
+  max-height: 80vh;
+  overflow-y: scroll;
+}

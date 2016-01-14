@@ -1,0 +1,714 @@
+nav#topbar{
+    @include height-init($sm-up: set($topbar-height, sm),$md-l: set($topbar-height, md-l), $lg: set($topbar-height, lg),  $lg-l: set($topbar-height, lg-l), $xlg: set($topbar-height, xlg), $xxlg: set($topbar-height, xxlg));
+    @include padding-left-init($sm-up: 0, $lg: 7.5vw, $lg-l-up: 31vw, $xlg-up: 42.5vw, $xxlg: 44vw);
+    width: 100%;
+    position: fixed;
+    display: block;
+    z-index: 1000;
+    transition: margin 0.3s ease-in-out;
+    box-sizing: padding-box;
+    @include gradient($startColor: rgba(scale-color($alert-color, $lightness: 12.5%, $saturation: -65%), 0.75), $endColor: rgba(scale-color($alert-color, $lightness: 12.5%, $saturation: -65%), 0));
+   @media #{$large-up} {
+        right: 0;
+        position: absolute;
+        padding-top: 2vw;
+        padding-right: 8vw;
+    }
+    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+        padding-right: 8vw;
+    }
+    logo-img{
+        @include width-init($sm-up: set($logo-img-width, sm), $md-l: set($logo-img-width, md-l), $lg-up: set($logo-img-height, lg),  $lg-l: set($logo-img-width, lg-l), $xlg: set($logo-img-width, xlg), $xxlg: set($logo-img-height, xxlg));
+        @include height-init($sm-up: set($logo-img-height, sm), $md-l: set($logo-img-width, md-l), $lg-up: set($logo-img-height, lg),  $lg-l: set($logo-img-height, lg-l), $xlg: set($logo-img-height, xlg), $xxlg: set($logo-img-height, xxlg));
+        display: inline-block;
+        position: relative;
+        float: left;
+        img{
+            @extend %absolute-center-item;
+            padding: 0 1vh;
+            overflow: visible;
+            @media #{$large-only} and (orientation: portrait){
+                padding: 3vh 2vh 0;
+            }
+        }
+    }
+    logo-name{
+        @include width-init($sm-up: set($logo-name-width, sm), $md-l: set($logo-name-width, md-l), $lg: set($logo-name-width, lg), $lg-l: set($logo-name-width, lg-l), $xlg: set($logo-name-width, xlg), $xxlg: set($logo-name-width, xxlg));
+        @include height-init($sm-up: set($logo-name-height, sm), $md-l: set($logo-name-height, md-l), $lg: set($logo-name-height, lg), $lg-l: set($logo-name-height, lg-l), $xlg-up: set($logo-name-height, xlg), $xxlg: set($logo-name-height, xxlg));
+        @include margin-left-init($sm-up: 1vw, $lg: 0.5vw, $lg-l-up: 1.5vw, $xlg: 0.5vw);
+        display: inline-block;
+        position: relative;
+        float: left;
+        box-sizing: border-box;
+        @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape){
+            display: none;
+        }
+        a{
+            @include font-size-init($sm-up: 5vw, $lg: 2.75vw, $lg-l: 2.15vw, $xlg: 1.9vw, $xxlg: 1.65vw);
+            @include margin-top-init($sm-up: 2vh, $lg-l-up: 1.5vh, $xxlg: 1.25vh);
+            font-family: $font-family-serif;
+            display: block;
+            box-sizing: border-box;
+            position: relative;
+            width: 100%;
+            letter-spacing: 0.115vw;
+            height: 100%;
+            margin: 0;
+            line-height: 1.3;
+            font-weight: 700;
+            color: $success-color;
+            span{
+                @include font-size-init($sm: 4vw, $md: 3.75vw, $md-l: 4vw, $lg: 2vw, $lg-l: 1.8vw, $xlg: 1.25vw, $xxlg: 1vw);
+                font-family: $font-family-sans-serif;
+                font-weight: 700;
+            }
+        }
+    }
+    nav-bar{
+        @include width-init($sm-up: set($nav-bar-width, sm), $md-l: set($nav-bar-width, md-l), $lg: set($nav-bar-width, lg), $lg-l-up: set($nav-bar-width, lg-l),  $xlg-up: set($nav-bar-width, xlg));
+        @include height-init($sm-up: set($nav-bar-height, sm), $md-l: set($nav-bar-height, md-l), $lg: set($nav-bar-height, lg), $lg-l: set($nav-bar-height, lg-l), $xlg-up: set($nav-bar-height, xlg));
+        display: inline-block;
+        position: relative;
+        float: right;
+        background-color: $primary-color;
+        @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape){
+            position: fixed;
+            height: 100vh;
+            top: 0;
+            right: 0;
+            border-left: 4px scale-color($primary-color, $lightness: -12.5%) solid;
+            transition: right 0.35s ease-in-out;
+            &.hidden{
+                right: 8vw;
+            }
+        }
+        @media #{$large-up} {
+            margin-top: 2.5vh;
+        }
+        @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+            margin-top: 2vh;
+        }
+        nav-item{
+            @include width-init($sm-up: set($nav-item-width, sm), $lg-up: set($nav-item-width, lg));
+            background-color: $primary-color;
+            height: 100%;
+            display: inline;
+            position: relative;
+            float: right;
+            padding: 0;
+            margin: 0;
+            transition: width 0.3s ease-in-out,
+                        opacity 0.3s ease-in-out,
+                        background 0.3s ease-in-out;
+            @media #{$small-only}, #{$medium-only} {
+                border-bottom: 0 transparent solid;
+            }
+            @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape){
+                display: block;
+                width: 100%;
+                height: 20vh;
+            }
+            &#search {
+              form{
+                  opacity: 0;
+                  width: 0;
+                  display: none;
+                  @include height-lineHeight-init($sm-up: set($nav-bar-height, sm), $md-l: set($nav-bar-height, md-l), $lg: set($nav-bar-height, lg), $lg-l: set($nav-bar-height, lg-l), $xlg-up: set($nav-bar-height, xlg));
+                  transition: all 0.3s ease-in-out;
+                  input{
+                      @include height-lineHeight-init($sm-up: set($nav-bar-height, sm), $md-l: set($nav-bar-height, md-l), $lg: set($nav-bar-height, lg), $lg-l: set($nav-bar-height, lg-l), $xlg-up: set($nav-bar-height, xlg));
+                      border: 0;
+                      border-bottom: 4px scale-color($secondary-color, $lightness: -12.5%) solid;
+                      background: transparent;
+                      margin: 0;
+                      color: $secondary-color;
+                  }
+                  a.post-button{
+                      @include height-lineHeight-init($sm-up: set($nav-bar-height, sm), $md-l: set($nav-bar-height, md-l), $lg: set($nav-bar-height, lg), $lg-l: set($nav-bar-height, lg-l), $xlg-up: set($nav-bar-height, xlg));
+                      opacity: 0;
+                      width: 0;
+                      display: none;
+                      height: 100%;
+                      transition: all 0.3s ease-in-out;
+                      text-align: right;
+                      color: #ffffff;
+                      padding-right: 1vw;
+                  }
+              }
+            }
+            @media #{$large-up} {
+                &#hamburger, &#search, &#phone{
+                    display: none;
+                    width: 0;
+                }
+            }
+        }
+        a{
+            @extend %absolute-center-parent;
+            display: block;
+            box-sizing: content-box;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            text-align: center;
+            span{
+              @extend %absolute-center-item;
+                font-size: 1.25em;
+            }
+            &.icon{
+              border-bottom: 4px scale-color($secondary-color, $lightness: -12.5%) solid;
+            }
+        }
+        &.search-active{
+            nav-item{
+                width: 0;
+                display: hidden;
+                opacity: 0;
+                @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+                    width: 25%;
+                    display: inline-block;
+                }
+                &#search{
+                    opacity: 1;
+                    width: 83.35%;
+                    display: inline-block;
+                    @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+                        width: 100%;
+                    }
+                    input{
+                        @include height-lineHeight-init($sm-up: set($nav-bar-height, sm), $md-l: set($nav-bar-height, md-l), $lg: set($nav-bar-height, lg), $lg-l: set($nav-bar-height, lg-l), $xlg-up: set($nav-bar-height, xlg));
+                        border: 0;
+                        border-bottom: 4px scale-color($secondary-color, $lightness: -12.5%) solid;
+                        background: transparent;
+                        margin: 0;
+                        color: $secondary-color;
+                    }
+                    a{
+                        text-align: left;
+                        padding-left: 2vw;
+                    }
+                    form{
+                        opacity: 1;
+                        width: 85%;
+                        display: inline-block;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                    }
+                    a.post-button{
+                      @include width-init($sm-up: set($nav-bar-height, sm), $md-l: set($nav-bar-height, md-l), $lg: set($nav-bar-height, lg), $lg-l: set($nav-bar-height, lg-l), $xlg-up: set($nav-bar-height, xlg));
+                      opacity: 1;
+                      display: inline-block;
+                      position: absolute;
+                      right: 0;
+                      top: 0;
+                    }
+                }
+                &#hamburger{
+                    opacity: 1;
+                    width: 16.65%;
+                    a{
+                      border-bottom: 0;
+                    }
+                }
+                @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape){
+                    width: 100%;
+                    display: block;
+                    opacity: 1;
+                    &#hamburger{
+                        width: 100%;
+                    }
+                    &#search{
+                        width: 64vw;
+                        input{
+                          background-color: scale-color($primary-color, $lightness: -12.5%);
+                          border-bottom: 0;
+                        }
+                        .icon{
+                            width: 15%;
+                            padding: 0;
+                            border-bottom: 0;
+                            border-left: 4px scale-color($primary-color, $lightness: -12.5%) solid;
+                            span{
+                                color: $secondary-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .nav-icon {
+            width: 35%;
+            height: 10vw;
+            margin: 2vw auto;
+            box-sizing: border-box;
+            position: relative;
+            transform: rotate(0deg);
+            transition: .5s ease-in-out;
+            cursor: pointer;
+            border-bottom: 0 !important;
+            span {
+                display: block;
+                position: absolute;
+                height: 3px;
+                width: 100%;
+                background: $secondary-color;
+                border-radius: 3px;
+                opacity: 1;
+                left: 0;
+                transform: rotate(0deg);
+                transition: .25s ease-in-out;
+
+                &:nth-child(1) {
+                    top: 2vw;
+                }
+                &:nth-child(2) {
+                    top: 4.5vw;
+                }
+                &:nth-child(3) {
+                    top: 7vw;
+                }
+            }
+            &.open{
+                span{
+                    &:nth-child(1) {
+                        top: 5vw;
+                        transform: rotate(135deg);
+                    }
+                    &:nth-child(2) {
+                        opacity: 0;
+                        left: -3vw;
+                    }
+                    &:nth-child(3) {
+                        top: 5vw;
+                        transform: rotate(-135deg);
+                    }
+                }
+            }
+            @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape) {
+                height: 6vh;
+                margin: 7vh auto;
+                width: 50%;
+                span{
+                  height: 4px;
+                  border-radius: 4px;
+                    &:nth-child(1) {
+                        top: 0vh;
+                    }
+                    &:nth-child(2) {
+                        top: 3vh;
+                    }
+                    &:nth-child(3) {
+                        top: 6vh;
+                    }
+                }
+                &.open{
+                    span{
+                        &:nth-child(1) {
+                            top: 3vh !important;
+                            transform: rotate(135deg);
+                        }
+                        &:nth-child(2) {
+                            opacity: 0;
+                            left: -3vw;
+                        }
+                        &:nth-child(3) {
+                            top: 3vh !important;
+                            transform: rotate(-135deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    announcments-container{
+        @include width-init($sm-up: set($announcments-width, sm), $md-l: set($announcments-width, md-l), $lg-up: set($announcments-width, lg), $lg-l: set($announcments-width, lg-l), $xlg: set($announcments-width, xlg), $xxlg: set($announcments-width, xxlg));
+        @include height-init($sm-up: set($announcments-height, sm), $md-l: set($announcments-height, md-l), $lg-up: set($announcments-height, lg), $lg-l-up: set($announcments-height, lg-l));
+        @include margin-top-init($sm-up: 0, $lg: 1vh, $lg-l: 1.5vh, $xlg: 2vh,  $xxlg: 1.5vh);
+        @extend %no-space;
+        box-sizing: border-box;
+        display: inline-block;
+        position: relative;
+        float: right;
+        line-height: 1;
+        background: rgba($secondary-color, 1);
+        transition: width 0.35s ease-in-out;
+        @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape){
+            float: left;
+            &.nav-bar--hidden{
+                width: 92vw;
+            }
+        }
+        #announcments-carousel {
+            @include height-init($sm-up: set($announcments-height, sm), $md-l: set($announcments-height, md-l), $lg-up: set($announcments-height, lg), $lg-l-up: set($announcments-height, lg-l));
+            max-width: 100%;
+            width: 100%;
+            display: inline-block;
+            float: left;
+            transition: width 0.3s ease-in-out;
+            border-bottom: 4px scale-color($secondary-color, $lightness: -12.5%) solid;
+            @media #{$large-up} {
+                max-width: 75%;
+                width: 75%;
+            }
+        }
+        sbar{
+            box-sizing: border-box;
+            display: none;
+            width: 25%;
+            height: 100%;
+            position: relative;
+            float: left;
+            transition: width 0.3s ease-in-out;
+            @media #{$large-up} {
+                display: inline-block;
+            }
+            a.searchbar-icon{
+                @include height-lineHeight-init($sm-up: set($announcments-height, sm), $md-l: set($announcments-height, md-l), $lg-up: set($announcments-height, lg), $lg-l-up: set($announcments-height, lg-l));
+                @include font-size-init($sm-up: 0.85em, $lg-up: 1em, $xlg-up: 1em);
+                text-align: center;
+                display: block;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                padding-left: 1vw;
+                background-color: scale-color($success-color, $lightness: 10%);
+                border-bottom: 4px $success-color solid;
+                color: $secondary-color;
+                position: relative;
+                transition: background 0.3s ease-in-out;
+                span{
+                  @include height-lineHeight-init($sm-up: set($announcments-height, sm), $md-l: set($announcments-height, md-l), $lg-up: set($announcments-height, lg), $lg-l-up: set($announcments-height, lg-l));
+                  position: absolute;
+                  left: 1vw;
+                  font-size: 1.25em;
+                }
+            }
+            form{
+                opacity: 0;
+                width: 0;
+                display: none;
+                height: 100%;
+                transition: all 0.3s ease-in-out;
+                input{
+                    @include height-lineHeight-init($sm-up: set($announcments-height, sm), $md-l: set($announcments-height, md-l), $lg-up: set($announcments-height, lg), $lg-l-up: set($announcments-height, lg-l));
+                    border: 0;
+                    border-bottom: 4px $success-color solid;
+                    background: transparent;
+                }
+                a.post-button{
+                    @include height-lineHeight-init($sm-up: set($announcments-height, sm), $md-l: set($announcments-height, md-l), $lg-up: set($announcments-height, lg), $lg-l-up: set($announcments-height, lg-l));
+                    opacity: 0;
+                    width: 0;
+                    display: none;
+                    height: 100%;
+                    transition: all 0.3s ease-in-out;
+                    text-align: right;
+                    color: #ffffff;
+                    padding-right: 1vw;
+                }
+            }
+        }
+        @media #{$large-up} {
+            display: inline-block;
+            &.search-active{
+                #announcments-carousel {
+                    width: 40% !important;
+                }
+                sbar{
+                    width: 60%;
+                    a.searchbar-icon{
+                        padding-left: 3.5vw;
+                        text-align: left;
+                    }
+                    form{
+                        opacity: 1;
+                        width: 75%;
+                        display: inline-block;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                    }
+                    a.post-button{
+                      @include width-init($sm-up: set($announcments-height, sm), $lg-up: set($announcments-height, lg), $lg-l-up: set($announcments-height, lg-l));
+                      opacity: 1;
+                      display: inline-block;
+                      position: absolute;
+                      right: 0;
+                      top: 0;
+                    }
+                }
+            }
+        }
+        @media #{$xlarge-up}{
+            &.search-active{
+                sbar{
+                    a.searchbar-icon{
+                        padding-left: 2.5vw;
+                    }
+                }
+            }
+        }
+    }
+    off-canvas-nav{
+        @include width-init($sm-up: set($off-canvas-width, sm), $md-l: set($off-canvas-width, md-l), $lg: set($off-canvas-width, lg), $lg-l: set($off-canvas-width, lg-l), $xlg: set($off-canvas-width, xlg), $xxlg: set($off-canvas-width, xxlg));
+        @include height-init($sm-up: set($off-canvas-height, sm), $md-l: set($off-canvas-height, md-l), $lg: set($off-canvas-height, lg), $lg-l-up: set($off-canvas-height, lg-l));
+        @include margin-top-init($sm-up: 0, $lg: 2vh, $lg-l: 1vh, $xlg: 1vh, $xxlg: 1vh);
+        display: inline-block;
+        position: relative;
+        float: right;
+        opacity: 1;
+        transition: opacity 0.2s ease-in-out,
+                    height 0.45s ease-in-out;
+        z-index: 999999;
+        @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape){
+            margin-right: 8vw;
+        }
+        nav-item{
+            @include font-size-init($sm-up: 0.85em, $lg-up: 1em, $xlg-up: 1em);
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            float: left;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out,
+                        height 0.3s ease-in-out;
+            -webkit-transition: opacity 0.3s ease-in-out,
+                        height 0.3s ease-in-out;
+            a.nav-link{
+                @include height-lineHeight-init($sm-up: set($off-canvas-navitem-height, sm), $md-l: set($off-canvas-navitem-height, md-l), $lg: set($off-canvas-navitem-height, lg), $lg-l-up: set($off-canvas-navitem-height, lg-l));
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+                color: #ffffff;
+                background-color: $primary-color;
+                margin: 0;
+                padding: 0;
+                font-family: $font-family-serif;
+                letter-spacing: 0.075em;
+                &.active{
+                    color: $secondary-color;
+                    background-color: rgba($success-color, 1);
+                }
+            }
+        }
+        &.hidden{
+            opacity: 0;
+            a.nav-link, nav-item{
+                opacity: 0;
+            }
+        }
+        &.collapsed{
+            height: 0;
+            a.nav-link, nav-item{
+                height: 0;
+            }
+        }
+        &.fade-in{
+            opacity: 1;
+        }
+        &.fade-out{
+            a.nav-link, nav-item{
+                opacity: 0;
+            }
+        }
+        @media #{$large-up} {
+            margin: 0;
+            padding-top: 0;
+            opacity: 1;
+            a.nav-link, nav-item{
+                width: 20%;
+                opacity: 1;
+                a{
+                    transition: background-color 0.3s ease-in-out;
+                }
+            }
+            &.collapsed, &.hidden {
+                opacity: 1;
+                height: 5vw;
+                a.nav-link, nav-item{
+                    opacity: 1;
+                    height: 5vw;
+                }
+            }
+        }
+        @media #{$large-up} and (orientation: landscape), #{$xlarge-up} {
+            margin: 0;
+            height: 5vw;
+            opacity: 1;
+            a.nav-link, nav-item{
+                width: 20%;
+                opacity: 1;
+            }
+            &.collapsed, &.hidden {
+                opacity: 1;
+                height: 5vw;
+                a.nav-link, nav-item{
+                    opacity: 1;
+                    height: 5vw;
+                }
+            }
+        }
+    }
+    &.active{
+        @include gradient($startColor: scale-color($secondary-color, $lightness: 95%), $endColor: scale-color($secondary-color, $lightness: 75%));
+        @include height-init($sm-up: 10vw, $xlg-up: 5vw);
+        border-bottom: 4px scale-color($success-color, $lightness: -12.5%) solid;
+        transition: top 0.25s ease-in-out;
+        width: 100%;
+        padding-top: 0vh;
+        padding-left: 0;
+        position: absolute;
+        top: -10vh;
+        padding-right: 0 !important;
+        filter: none;
+        text-shadow: none;
+        logo-img{
+            @include height-init($sm-up: 10vw, $xlg-up: 5vw);
+            @include width-init($sm-up: 10vw, $xlg-up: 5vw);
+            margin: 0;
+            padding: 1vw;
+            margin-left: 3vw;
+            @media #{$large-only} {
+                padding: 1.25vw;
+                padding-top: 1vw;
+                margin-left: 0;
+            }
+            @media #{$large-only} and (orientation: landscape){
+                padding: 1.5vw;
+                margin-left: 0;
+            }
+            @media #{$xlarge-only} {
+                  margin-left: 2vw;
+            }
+            img{
+                @extend %no-space;
+            }
+        }
+        logo-name {
+                @include height-init($sm-up: 10vw, $xlg-up: 5vw);
+                width: 20vw;
+                @media #{$large-only} and (orientation: portrait) {
+                    width: 0;
+                    display: none;
+                }
+                @media #{$xlarge-only} {
+                      width: 22vw;
+                }
+            a{
+                padding-top: 0.25vh;
+                font-size: 1.35em;
+                line-height: 1.4;
+                margin: 0;
+                @media #{$large-only} and (orientation: landscape) {
+                    margin-top: 2vh;
+                }
+                @media #{$xlarge-up} {
+                    font-size: 1.2em;
+                }
+                @media #{$xxlarge-up} {
+                    margin-top: 1.5vh;
+                }
+                span{
+                    font-size: 0.8em;
+                    @media #{$large-only} and (orientation: landscape) {
+                        width: 0;
+                        display: none;
+                    }
+                }
+            }
+        }
+        nav-bar{
+            @include height-init($sm-up: 10vw, $xlg-up: 5vw);
+            float: right;
+            padding-top: 0;
+            margin-top: 0;
+            border-bottom: 4px scale-color($success-color, $lightness: -12.5%) solid;
+            // @media #{$large-only} {
+            //     width: 0;
+            // }
+            nav-item{
+                border-bottom: 0;
+                .icon{
+                    border-bottom: 0 transparent solid;
+                }
+            }
+            a{
+              @include height-lineHeight-init($sm-up: 10vw, $xlg-up: 5vw);
+            }
+
+        }
+        announcments-container{
+            @include height-init($sm-up: 5vw, $xlg-up: 2.5vw);
+            width: 55vw;
+            float: right;
+            margin-top: 0;
+            @media #{$large-only} and (orientation: portrait) {
+                width: 64vw;
+            }
+            @media #{$large-only} and (orientation: landscape) {
+                width: 52vw;
+            }
+            #announcments-carousel, .modern-ticker a, .mt-play, .mt-prev, .mt-next, .searchbar-icon, .icon-search, sbar form input, a.post-button{
+                @include height-lineHeight-init($sm-up: 5vw, $xlg-up: 2.5vw);
+            }
+            .mt-news{
+                width: 100% !important;
+            }
+        }
+        off-canvas-nav{
+            width: 55vw;
+            float: right;
+            @include height-init($sm-up: 5vw, $xlg-up: 2.5vw);
+            @media #{$large-only} and (orientation: portrait) {
+                width: 64vw;
+            }
+            @media #{$large-only} and (orientation: landscape) {
+                width: 52vw;
+            }
+            a.nav-link, nav-item{
+                @include height-init($sm-up: 5vw, $xlg-up: 2.5vw);
+                a{
+                    @include height-lineHeight-init($sm-up: 5vw, $xlg-up: 2.5vw);
+                    border-bottom: 4px scale-color($success-color, $lightness: -12.5%) solid;
+                }
+            }
+        }
+        &.in{
+            position: fixed;
+            top: 0;
+        }
+    }
+
+    &.accordion-active{
+      @media #{$small-only}, #{$medium-only} {
+          @include margin-top-init($sm-up: -1 * set($logo-img-height, sm));
+      }
+    }
+  }
+//hover effects
+html.no-touch{
+    nav#topbar{
+        off-canvas-nav{
+            nav-item{
+                a.nav-link:hover{
+                    background-color: $success-color;
+                    text-decoration: none;
+                }
+            }
+        }
+        nav-bar{
+            nav-item > a:hover{
+                background-color: $success-color;
+                border-bottom: 4px scale-color($secondary-color, $lightness: -25%) solid;
+            }
+        }
+        sbar{
+            a:hover{
+                background-color: scale-color($success-color, $lightness: 0%);
+            }
+        }
+    }
+}

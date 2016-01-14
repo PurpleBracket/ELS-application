@@ -1,0 +1,79 @@
+// scaffold
+html{
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+body{
+    @extend %no-space;
+		height: auto;
+		display: block;
+		position: relative;
+    background-image: url('../../images/bg-stamp.png');
+    background-repeat: repeat;
+    overflow-x: hidden;
+    overflow: visible;
+    // overflow-y: scroll;
+}
+wrapper{
+		width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+}
+container{
+      @extend %no-space;
+      @include grid-row;
+			position: relative;
+			display: block;
+			width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+			height: auto;
+      min-height: 100vh;
+      transition: padding 0.35s ease-in-out;
+}
+content-container{
+		@include grid-row;
+    @include max-width-init($sm-up: 100%, $lg-up: 85vw);
+    @include min-width-init($sm-up: 100%, $lg-up: 85vw);
+    padding: 0 !important;
+    margin: 0 auto !important;
+		display: block;
+		height: 100%;
+		position: relative;
+    @media #{$small-only} and (orientation: landscape), #{$medium-only} and (orientation: landscape){
+        width: 92vw;
+        min-width: 92vw;
+        max-width: 92vw;
+        margin: 0 !important;
+    }
+}
+a, a:hover, a:active{
+    text-decoration: none;
+}
+#gradient-overlay{
+    @include background-image(linear-gradient(top,  rgba($alert-color,0.1) 0%,rgba($alert-color,0.25) 45%,rgba($alert-color,0.5) 75%,rgba($alert-color,0.75) 100%));
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+#mask{
+  display: none;
+}
+legal-tag{
+    color: $primary-color;
+    text-align: center;
+    font-size: 0.7em;
+    line-height: 1.3;
+    width: 100%;
+    margin-top: 2vh;
+    padding: 0vh 1vh 1vh;
+    display: block;
+}
+p{
+  @extend %paragraph-1;
+}
